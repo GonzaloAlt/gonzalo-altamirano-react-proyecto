@@ -1,17 +1,9 @@
-// function NavBar() {
-//   return (
-//     <nav className="NavBar">
-//       <h1>Soy una NavBar</h1>
-//     </nav>
-//   );
-// }
-
-// export default NavBar;
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { ShoppingCartIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import theDudeLogo from "../Imgs/theDudeLogo2.png";
 import theDudeLogoSmall from "../Imgs/theDudeLogo3.png";
+import CartWidget from "./CartWidget";
 
 const navigation = [
   { name: "HOME", href: "#", current: true },
@@ -27,7 +19,7 @@ function classNames(...classes) {
 
 export default function Example() {
   return (
-    <Disclosure as="nav" className="bg-red-rug-600">
+    <Disclosure as="nav" className="bg-red-rug-600 z-50">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -83,19 +75,10 @@ export default function Example() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
-                  type="button"
-                  className="bg-red-rug-900 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white block"
-                >
-                  <span className="sr-only">View Shopping Cart</span>
-                  <ShoppingCartIcon
-                    className="h-6 w-6 stroke-white"
-                    aria-hidden="true"
-                  />
-                </button>
-
+                <CartWidget />
                 {/* Profile dropdown */}
-                <Menu as="div" className="ml-3 relative">
+
+                <Menu as="div" className="ml-3 relative z-50">
                   <div href="#">
                     <Menu.Button className="bg-red-rug-700 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                       <span className="sr-only">Open user menu</span>
@@ -122,7 +105,7 @@ export default function Example() {
                             href="#"
                             className={classNames(
                               active ? "bg-red-rug-400" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                              "block px-4 py-2 text-sm text-gray-700 "
                             )}
                           >
                             Your Profile

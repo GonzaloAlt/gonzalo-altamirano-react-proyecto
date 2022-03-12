@@ -1,27 +1,33 @@
-import React from "react";
-import defaultImg from "../Imgs/patagonia-kune-sixpack-473.png";
-import ItemCount from "./ItemCount";
+// import React, { useState } from "react";
 
-export const Item = () => {
-  const product = {
-    name: "Patagonia Kune SixPack 473",
-    img: defaultImg,
-    precio: 1150,
-    stock: 15,
-  };
+import ItemCount from "./ItemCount";
+import { CartButton } from "./CartButton";
+
+export const Item = ({ product }) => {
+  const { name, img, price, offer, stock } = product;
+
   return (
-    //   Producto Hardcodeado
-    <div className="sm:w-4/12 lg:w-2/12  px-6 py-6">
+    <div className="sm:w-4/12 sm:px-6 xl:w-1/5  xl:px-16 py-9 ">
       <div className="w-full">
-        <img src={product.img} alt="" />
+        {offer ? (
+          <div className="absolute">
+            <h4 className="bg-[#ffd050] rounded-full p-2 ">-{offer}%</h4>
+          </div>
+        ) : (
+          <></>
+        )}
+        <img src={img} alt="" />
       </div>
       <h3 className="font-bold text-gray-500 text-center py-1 font-sans">
-        {product.name}
+        {name}
       </h3>
       <h3 className="font-bold text-gray-700 text-center py-1 font-mono">
-        ${product.precio}
+        ${price}
       </h3>
-      <ItemCount stock={product.stock} />
+      <div>
+        <ItemCount stock={stock} />
+        <CartButton />
+      </div>
     </div>
   );
 };

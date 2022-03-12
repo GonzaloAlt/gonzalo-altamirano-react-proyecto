@@ -3,6 +3,7 @@ import NavBar from "./Components/NavBar";
 import Title from "./Components/Title/Title";
 import ItemListContainer from "./Components/ItemListContainer";
 import { useEffect } from "react";
+import { Footer } from "./Components/Footer";
 
 function App() {
   useEffect(() => {
@@ -13,9 +14,10 @@ function App() {
     <div className="App">
       <header>
         <NavBar></NavBar>
-        <Title />
-        <ItemListContainer name={"Carlitos"} />
       </header>
+      <Title />
+      <ItemListContainer name={"Jeffrey"} />
+      <Footer />
     </div>
   );
 }

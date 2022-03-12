@@ -15,6 +15,7 @@ module.exports = {
         },
         SmoochSans: ["Smooch Sans", "sans-serif"],
       },
+      animation: ["animate-spin"],
     },
   },
   plugins: [],

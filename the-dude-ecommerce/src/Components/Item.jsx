@@ -1,5 +1,3 @@
-// import React, { useState } from "react";
-
 import ItemCount from "./ItemCount";
 import { CartButton } from "./CartButton";
 

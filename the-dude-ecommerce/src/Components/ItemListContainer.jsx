@@ -3,22 +3,30 @@ import { ItemList } from "./ItemList";
 
 function ItemListContainer(props) {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [show, setShow] = useState(true);
 
   const asyncMockProduct = () => {
     return new Promise((res, rej) => {
       setTimeout(() => {
-        res(true);
+        if (show) {
+          res();
+        } else {
+          rej("No hay productos disponibles para mostrar");
+        }
       }, 2000);
     });
   };
+
   useEffect(() => {
     asyncMockProduct()
-      .then((r) => {
+      .then(() => {
         setIsLoaded(true);
+        setShow(true);
       })
       .catch((e) => {
-        setIsLoaded(false);
+        setShow(false);
         console.log(e);
+        setIsLoaded(true);
       });
   }, []);
 
@@ -30,7 +38,15 @@ function ItemListContainer(props) {
             Bienvenido, <span className="text-red-rug-600">{props.name}</span>
           </h2>
           <div className="flex flex-row justify-start flex-wrap items-center">
-            <ItemList />
+            {show ? (
+              <ItemList />
+            ) : (
+              <div className="flex justify-center text-center text-gray-500 my-40  sm:text-lg sm:max-w-xl sm:mx-auto  md:text-xl ">
+                <h2>
+                  Lo sentimos, no tenemos productos para mostrar en este momento
+                </h2>{" "}
+              </div>
+            )}
           </div>
         </div>
       ) : (

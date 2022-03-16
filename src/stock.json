@@ -6,7 +6,11 @@
     "price": 1150,
     "offer": 0,
     "ml": 473,
-    "stock": 9
+    "stock": 9,
+    "alcoholContent": "4.86%",
+    "IBU": 14,
+    "style": "blond ale",
+    "detail": "Cerveza fácil de beber, con orientación hacia la malta. Balanceada y limpia. De color amarillo brillante con buena retención de espuma. Su suave dulzor de malta y aromas a cereal la hacen una excelente opción. Tiene una pequeña presencia de lúpulo , aunque su amargor es bajo. Su final es seco a ligeramente dulce - maltoso."
   },
   {
     "id": 2,
@@ -15,7 +19,11 @@
     "price": 1500,
     "offer": 13,
     "ml": 473,
-    "stock": 2
+    "stock": 2,
+    "alcoholContent": "4.86%",
+    "IBU": 14,
+    "style": "blond ale",
+    "detail": "Cerveza fácil de beber, con orientación hacia la malta. Balanceada y limpia. De color amarillo brillante con buena retención de espuma. Su suave dulzor de malta y aromas a cereal la hacen una excelente opción. Tiene una pequeña presencia de lúpulo , aunque su amargor es bajo. Su final es seco a ligeramente dulce - maltoso."
   },
   {
     "id": 3,
@@ -24,7 +32,11 @@
     "price": 250,
     "offer": 0,
     "ml": 473,
-    "stock": 15
+    "stock": 15,
+    "alcoholContent": "4.86%",
+    "IBU": 14,
+    "style": "blond ale",
+    "detail": "Cerveza fácil de beber, con orientación hacia la malta. Balanceada y limpia. De color amarillo brillante con buena retención de espuma. Su suave dulzor de malta y aromas a cereal la hacen una excelente opción. Tiene una pequeña presencia de lúpulo , aunque su amargor es bajo. Su final es seco a ligeramente dulce - maltoso."
   },
   {
     "id": 4,
@@ -33,7 +45,11 @@
     "price": 250,
     "offer": 0,
     "ml": 473,
-    "stock": 10
+    "stock": 10,
+    "alcoholContent": "4.86%",
+    "IBU": 14,
+    "style": "blond ale",
+    "detail": "Cerveza fácil de beber, con orientación hacia la malta. Balanceada y limpia. De color amarillo brillante con buena retención de espuma. Su suave dulzor de malta y aromas a cereal la hacen una excelente opción. Tiene una pequeña presencia de lúpulo , aunque su amargor es bajo. Su final es seco a ligeramente dulce - maltoso."
   },
   {
     "id": 5,
@@ -42,7 +58,11 @@
     "price": 900,
     "offer": 1,
     "ml": 473,
-    "stock": 15
+    "stock": 15,
+    "alcoholContent": "4.86%",
+    "IBU": 14,
+    "style": "blond ale",
+    "detail": "Cerveza fácil de beber, con orientación hacia la malta. Balanceada y limpia. De color amarillo brillante con buena retención de espuma. Su suave dulzor de malta y aromas a cereal la hacen una excelente opción. Tiene una pequeña presencia de lúpulo , aunque su amargor es bajo. Su final es seco a ligeramente dulce - maltoso."
   },
   {
     "id": 6,
@@ -51,7 +71,11 @@
     "price": 1100,
     "offer": 0,
     "ml": 473,
-    "stock": 15
+    "stock": 15,
+    "alcoholContent": "4.86%",
+    "IBU": 14,
+    "style": "blond ale",
+    "detail": "Cerveza fácil de beber, con orientación hacia la malta. Balanceada y limpia. De color amarillo brillante con buena retención de espuma. Su suave dulzor de malta y aromas a cereal la hacen una excelente opción. Tiene una pequeña presencia de lúpulo , aunque su amargor es bajo. Su final es seco a ligeramente dulce - maltoso."
   },
   {
     "id": 7,
@@ -60,7 +84,11 @@
     "price": 1150,
     "offer": 3,
     "ml": 473,
-    "stock": 15
+    "stock": 15,
+    "alcoholContent": "4.86%",
+    "IBU": 14,
+    "style": "blond ale",
+    "detail": "Cerveza fácil de beber, con orientación hacia la malta. Balanceada y limpia. De color amarillo brillante con buena retención de espuma. Su suave dulzor de malta y aromas a cereal la hacen una excelente opción. Tiene una pequeña presencia de lúpulo , aunque su amargor es bajo. Su final es seco a ligeramente dulce - maltoso."
   },
   {
     "id": 8,
@@ -69,6 +97,10 @@
     "price": 1350,
     "offer": 5,
     "ml": 473,
-    "stock": 15
+    "stock": 15,
+    "alcoholContent": "4.86%",
+    "IBU": 14,
+    "style": "blond ale",
+    "detail": "Cerveza fácil de beber, con orientación hacia la malta. Balanceada y limpia. De color amarillo brillante con buena retención de espuma. Su suave dulzor de malta y aromas a cereal la hacen una excelente opción. Tiene una pequeña presencia de lúpulo , aunque su amargor es bajo. Su final es seco a ligeramente dulce - maltoso."
   }
 ]

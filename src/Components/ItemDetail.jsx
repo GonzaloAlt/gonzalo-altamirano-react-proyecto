@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 
 export const ItemDetail = ({ product, showModal }) => {
   return (
@@ -13,13 +12,14 @@ export const ItemDetail = ({ product, showModal }) => {
           <div className="p-5 bg-[#ffd050]">
             <div>
               <h5 className="mb-2 text-2xl font-bold tracking-tight text-white dark:text-white">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                {product.name}
               </h5>
             </div>
             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-              necessitatibus ipsam ab porro, consequuntur cum animi veritatis
-              eius quidem deleniti.
+              {product.detail}
+            </p>
+            <p className="mb-3 font-bold text-gray-700 dark:text-gray-400">
+              ${product.price}
             </p>
             <button
               className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-red-rug-700 rounded-lg hover:bg-red-rug-900 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"

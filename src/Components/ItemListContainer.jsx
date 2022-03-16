@@ -2,22 +2,23 @@ import { useEffect, useState } from "react";
 import { ItemList } from "./ItemList";
 import { Loading } from "./Loading";
 import { getProduct } from "../Helpers/APICall";
+import { asyncMockProduct } from "../Helpers/asyncMock";
 
 function ItemListContainer(props) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [show, setShow] = useState(true);
   const [products, setProducts] = useState(false);
 
-  const asyncMockProduct = () => {
-    return new Promise((res, rej) => {
-      setTimeout(() => {
-        show ? res() : rej("No hay productos disponibles para mostrar");
-      }, 2000);
-    });
-  };
+  // const asyncMockProduct = () => {
+  //   return new Promise((res, rej) => {
+  //     setTimeout(() => {
+  //       show ? res() : rej("No hay productos disponibles para mostrar");
+  //     }, 2000);
+  //   });
+  // };
 
   useEffect(() => {
-    asyncMockProduct()
+    asyncMockProduct(show)
       .then(() => {
         setIsLoaded(true);
         setShow(true);

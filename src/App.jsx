@@ -4,6 +4,7 @@ import Title from "./Components/Title/Title";
 import ItemListContainer from "./Components/ItemListContainer";
 import { useEffect } from "react";
 import { Footer } from "./Components/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   useEffect(() => {
@@ -11,14 +12,17 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header>
-        <NavBar></NavBar>
-      </header>
-      <Title />
-      <ItemListContainer name={"Jeffrey"} />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <header>
+          <NavBar></NavBar>
+        </header>
+        <Title />
+        <ItemListContainer name={"Jeffrey"} />
+
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

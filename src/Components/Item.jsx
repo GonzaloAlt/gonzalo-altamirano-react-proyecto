@@ -1,31 +1,95 @@
 import ItemCount from "./ItemCount";
 import { CartButton } from "./CartButton";
+import { useState } from "react";
+import { HeartIcon } from "@heroicons/react/outline";
+import { ItemDetailContainer } from "./ItemDetailContainer";
 
 export const Item = ({ product }) => {
-  const { name, img, price, offer, stock } = product;
+  const { id, name, img, price, offer, stock } = product;
+  const [visibility, setVisibility] = useState(false);
+  const [isHover, setIsHover] = useState(false);
+  const [fillLike, setFillLike] = useState("#ffffff");
+  const [active, setActive] = useState("false");
+
+  function handleMouseEnter() {
+    setVisibility(true);
+    setIsHover(true);
+  }
+  function handleMouseLeave() {
+    setVisibility(false);
+    setIsHover(false);
+  }
+  function colorLike() {
+    fillLike !== "#ffd050" ? setFillLike("#ffd050") : setFillLike("#ffffff");
+  }
 
   return (
-    <div className="sm:w-4/12 sm:px-6 xl:w-1/5  xl:px-16 py-9 ">
-      <div className="w-full">
-        {offer ? (
-          <div className="absolute">
-            <h4 className="bg-[#ffd050] rounded-full p-2 ">-{offer}%</h4>
-          </div>
+    <>
+      <div
+        className="sm:w-4/12 sm:px-6 xl:w-1/5  xl:px-16 py-9 "
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="w-full">
+          {offer ? (
+            <div className=" relative z-40 flex flex-row justify-between items-center">
+              <h4 className="absolute bg-[#ffd050] rounded-full p-2 left-0">
+                -{offer}%
+              </h4>
+              <HeartIcon
+                className={
+                  visibility
+                    ? "absolute w-5 h-5 right-0 stroke-[#ffd050]"
+                    : "absolute w-5 h-5 right-0 stroke-[#ffd050] invisible"
+                }
+                onClick={colorLike}
+                fill={fillLike}
+              />
+            </div>
+          ) : (
+            <div className=" relative z-40 flex flex-row justify-between items-center">
+              <HeartIcon
+                className={
+                  visibility
+                    ? "absolute w-5 h-5 right-0 stroke-[#ffd050]"
+                    : "absolute w-5 h-5 right-0 stroke-[#ffd050] invisible"
+                }
+                onClick={colorLike}
+                fill={fillLike}
+              />
+            </div>
+          )}
+
+          <img
+            src={img}
+            alt=""
+            className={isHover ? "opacity-90 cursor-pointer" : ""}
+            onClick={() => {
+              setActive(id);
+            }}
+          />
+        </div>
+        <h3 className="font-bold text-gray-500 text-center py-1 font-sans">
+          {name}
+        </h3>
+        <h3 className="font-bold text-gray-700 text-center py-1 font-mono">
+          ${price}
+        </h3>
+        <div className={visibility ? "" : "invisible"}>
+          <ItemCount stock={stock} />
+          <CartButton />
+        </div>
+      </div>
+      <div className="absolute z-50 w-full">
+        {active === id ? (
+          <ItemDetailContainer
+            id={id}
+            showModal={(active) => setActive(active)}
+          />
         ) : (
           <></>
         )}
-        <img src={img} alt="" />
       </div>
-      <h3 className="font-bold text-gray-500 text-center py-1 font-sans">
-        {name}
-      </h3>
-      <h3 className="font-bold text-gray-700 text-center py-1 font-mono">
-        ${price}
-      </h3>
-      <div>
-        <ItemCount stock={stock} />
-        <CartButton />
-      </div>
-    </div>
+    </>
   );
 };

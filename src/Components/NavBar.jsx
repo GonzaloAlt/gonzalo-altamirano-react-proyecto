@@ -4,13 +4,14 @@ import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import theDudeLogo from "../Imgs/theDudeLogo2.png";
 import theDudeLogoSmall from "../Imgs/theDudeLogo3.png";
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: "HOME", href: "#", current: true },
-  { name: "CERVEZAS", href: "#", current: false },
-  { name: "VINOS", href: "#", current: false },
-  { name: "ESPIRITUOSAS", href: "#", current: false },
-  { name: "OFERTAS", href: "#", current: false },
+  { name: "HOME", to: "/home", current: false },
+  { name: "CERVEZAS", to: "/store/beer", current: false },
+  { name: "VINOS", to: "/store/wine", current: false },
+  { name: "ESPIRITUOSAS", to: "/store/spirit", current: false },
+  { name: "OFERTAS", to: "/store/offer", current: false },
 ];
 
 function classNames(...classes) {
@@ -57,9 +58,9 @@ export default function Example() {
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-3">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.to}
                         className={classNames(
                           item.current
                             ? "bg-red-rug-900 text-white"
@@ -69,7 +70,7 @@ export default function Example() {
                         aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -79,7 +80,7 @@ export default function Example() {
                 {/* Profile dropdown */}
 
                 <Menu as="div" className="ml-3 relative z-50">
-                  <div href="#">
+                  <div to="#">
                     <Menu.Button className="bg-red-rug-700 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                       <span className="sr-only">Open user menu</span>
                       <img
@@ -101,41 +102,41 @@ export default function Example() {
                     <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            to="#"
                             className={classNames(
                               active ? "bg-red-rug-400" : "",
                               "block px-4 py-2 text-sm text-gray-700 "
                             )}
                           >
                             Your Profile
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            to="#"
                             className={classNames(
                               active ? "bg-red-rug-400" : "",
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
                           >
                             Settings
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            to="#"
                             className={classNames(
                               active ? "bg-red-rug-400" : "",
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
                           >
                             Sign out
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                     </Menu.Items>
@@ -150,8 +151,8 @@ export default function Example() {
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
-                  as="a"
-                  href={item.href}
+                  as="Link"
+                  to={item.to}
                   className={classNames(
                     item.current
                       ? "bg-red-rug-700 text-white"

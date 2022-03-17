@@ -7,7 +7,7 @@ export const ItemList = ({ products }) => {
       {products ? (
         products.map((product) => <Item key={product.id} product={product} />)
       ) : (
-        <div>No se pudieron cargar los productos</div>
+        <>No se pudieron cargar los productos</>
       )}
     </>
   );

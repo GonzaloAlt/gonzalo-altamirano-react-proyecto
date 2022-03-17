@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Title() {
   return (
     <div className="relative bg-white overflow-hidden z-0">
@@ -30,20 +32,20 @@ export default function Title() {
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
-                  <a
-                    href="#"
+                  <Link
+                    to="/store"
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-rug-700 hover:bg-red-rug-600 md:py-4 md:text-lg md:px-10"
                   >
                     Ir a tienda
-                  </a>
+                  </Link>
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <a
-                    href="#"
+                  <Link
+                    to="/nosotros"
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-red-rug-900 bg-red-rug-500 hover:bg-red-rug-400 md:py-4 md:text-lg md:px-10"
                   >
                     Nosotros
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

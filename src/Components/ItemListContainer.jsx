@@ -3,40 +3,44 @@ import { ItemList } from "./ItemList";
 import { Loading } from "./Loading";
 import { getProduct } from "../Helpers/APICall";
 import { asyncMockProduct } from "../Helpers/asyncMock";
+import { useParams } from "react-router-dom";
 
 function ItemListContainer(props) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [show, setShow] = useState(true);
   const [products, setProducts] = useState(false);
-
-  // const asyncMockProduct = () => {
-  //   return new Promise((res, rej) => {
-  //     setTimeout(() => {
-  //       show ? res() : rej("No hay productos disponibles para mostrar");
-  //     }, 2000);
-  //   });
-  // };
+  const { category } = useParams();
 
   useEffect(() => {
+    setIsLoaded(false);
     asyncMockProduct(show)
       .then(() => {
         setIsLoaded(true);
-        setShow(true);
-        getProduct().then((response) => setProducts(response));
+        getProduct()
+          .then((response) => {
+            !category
+              ? setProducts(response)
+              : setProducts(
+                  response.filter(
+                    (res) => res[category] || res.itemType === category
+                  )
+                );
+          })
+          .then(() => console.log(products));
       })
       .catch((e) => {
         setShow(false);
         console.log(e);
         setIsLoaded(true);
       });
-  }, []);
+  }, [category]);
 
   return (
     <>
       {isLoaded ? (
         <div className="mx-12 lg:mx-2">
           <h2 className="text-center my-10 mt-20 text-4xl tracking-tight font-bold text-gray-900 sm:text-2xl md:text-4xl">
-            Bienvenido, <span className="text-red-rug-600">{props.name}</span>
+            {/* Bienvenido <span className="text-red-rug-600">{props.name}</span> */}
           </h2>
           <div className="flex flex-row justify-start flex-wrap items-center">
             {show ? (

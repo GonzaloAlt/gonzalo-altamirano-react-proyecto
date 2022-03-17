@@ -1,8 +1,9 @@
 [
   {
     "id": 1,
+    "itemType": "beer",
     "name": "Patagonia Kune SixPack",
-    "img": "Imgs/beers/patagonia-kune-sixpack-473.png",
+    "img": "https://i.imgur.com/Upq2VYm.png",
     "price": 1150,
     "offer": 0,
     "ml": 473,
@@ -14,8 +15,9 @@
   },
   {
     "id": 2,
+    "itemType": "beer",
     "name": "The Temple IPA SixPack",
-    "img": "Imgs/beers/Temple-Wolf-Ipa-Sixpack-473ml.png",
+    "img": "https://i.imgur.com/qxBKUh6.png ",
     "price": 1500,
     "offer": 13,
     "ml": 473,
@@ -27,8 +29,9 @@
   },
   {
     "id": 3,
+    "itemType": "beer",
     "name": "Ortuzar Golden Ale",
-    "img": "Imgs/beers/Ortuzar-Golden-Ale-473ml.png",
+    "img": "https://i.imgur.com/ZzDvoyx.png",
     "price": 250,
     "offer": 0,
     "ml": 473,
@@ -40,10 +43,11 @@
   },
   {
     "id": 4,
+    "itemType": "beer",
     "name": "Ortuzar Session Ipa",
-    "img": "Imgs/beers/Ortuzar-Session-Ipa-Americana-473ml.png",
+    "img": "https://i.imgur.com/5vZVFQY.png",
     "price": 250,
-    "offer": 0,
+    "offer": 20,
     "ml": 473,
     "stock": 10,
     "alcoholContent": "4.86%",
@@ -53,8 +57,9 @@
   },
   {
     "id": 5,
+    "itemType": "beer",
     "name": "Quilmes 0.0 Lata SixPack",
-    "img": "Imgs/beers/Quilmes-0.0-Lata-473ml-Sixpack.png",
+    "img": "https://i.imgur.com/e1aL17I.png",
     "price": 900,
     "offer": 1,
     "ml": 473,
@@ -66,8 +71,9 @@
   },
   {
     "id": 6,
+    "itemType": "beer",
     "name": "Budweiser SixPack",
-    "img": "Imgs/beers/Sixpack-Budweiser-473ml.png",
+    "img": "https://i.imgur.com/r3CMHcS.png",
     "price": 1100,
     "offer": 0,
     "ml": 473,
@@ -79,8 +85,9 @@
   },
   {
     "id": 7,
+    "itemType": "beer",
     "name": "Miller SixPack",
-    "img": "Imgs/beers/Sixpack-Miller-473ml.png",
+    "img": "https://i.imgur.com/e89DmVd.png",
     "price": 1150,
     "offer": 3,
     "ml": 473,
@@ -92,8 +99,9 @@
   },
   {
     "id": 8,
+    "itemType": "beer",
     "name": "Stella Artois Noire Sixpack",
-    "img": "Imgs/beers/Stella-Artois-Noire-Sixpack-473ml.png",
+    "img": "https://i.imgur.com/EEDeDaR.png",
     "price": 1350,
     "offer": 5,
     "ml": 473,
@@ -102,5 +110,33 @@
     "IBU": 14,
     "style": "blond ale",
     "detail": "Cerveza fácil de beber, con orientación hacia la malta. Balanceada y limpia. De color amarillo brillante con buena retención de espuma. Su suave dulzor de malta y aromas a cereal la hacen una excelente opción. Tiene una pequeña presencia de lúpulo , aunque su amargor es bajo. Su final es seco a ligeramente dulce - maltoso."
+  },
+  {
+    "id": 9,
+    "itemType": "wine",
+    "name": "1895 Norton",
+    "img": "https://i.imgur.com/nM03ASJ.png",
+    "price": 1350,
+    "offer": 5,
+    "ml": 473,
+    "stock": 15,
+    "alcoholContent": "4.86%",
+    "IBU": 14,
+    "style": "Malbec",
+    "detail": "Prueba"
+  },
+  {
+    "id": 10,
+    "itemType": "spirit",
+    "name": "Aperol",
+    "img": "https://i.imgur.com/WS4bwEO.jpg",
+    "price": 1350,
+    "offer": 5,
+    "ml": 750,
+    "stock": 4,
+    "alcoholContent": "4.86%",
+    "IBU": 14,
+    "style": "blond ale",
+    "detail": "Prueba"
   }
 ]

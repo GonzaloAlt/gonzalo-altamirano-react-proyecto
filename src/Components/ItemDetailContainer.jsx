@@ -3,18 +3,20 @@ import { ItemDetail } from "./ItemDetail";
 import { getProduct } from "../Helpers/APICall";
 import { asyncMockProduct } from "../Helpers/asyncMock";
 import { Loading } from "./Loading";
+import { useParams } from "react-router-dom";
 
-export const ItemDetailContainer = ({ id, showModal }) => {
+export const ItemDetailContainer = () => {
   const [productId, setProductId] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
   const [show, setShow] = useState(true);
+  const { itemId } = useParams();
 
   useEffect(() => {
     asyncMockProduct(productId)
       .then(() => {
         setIsLoaded(true);
         setShow(true);
-        getProduct(id).then((response) => setProductId(response));
+        getProduct(itemId).then((response) => setProductId(response));
       })
       .catch((e) => {
         setShow(false);
@@ -29,7 +31,7 @@ export const ItemDetailContainer = ({ id, showModal }) => {
         <div>
           <div>
             {show ? (
-              <ItemDetail product={productId} showModal={showModal} />
+              <ItemDetail product={productId} />
             ) : (
               <div className="flex justify-center text-center text-gray-500 my-40  sm:text-lg sm:max-w-xl sm:mx-auto  md:text-xl ">
                 <h2>

@@ -2,14 +2,13 @@ import ItemCount from "./ItemCount";
 import { CartButton } from "./CartButton";
 import { useState } from "react";
 import { HeartIcon } from "@heroicons/react/outline";
-import { ItemDetailContainer } from "./ItemDetailContainer";
+import { Link } from "react-router-dom";
 
 export const Item = ({ product }) => {
   const { id, name, img, price, offer, stock } = product;
   const [visibility, setVisibility] = useState(false);
   const [isHover, setIsHover] = useState(false);
   const [fillLike, setFillLike] = useState("#ffffff");
-  const [active, setActive] = useState("false");
 
   function handleMouseEnter() {
     setVisibility(true);
@@ -59,15 +58,14 @@ export const Item = ({ product }) => {
               />
             </div>
           )}
-
-          <img
-            src={img}
-            alt=""
-            className={isHover ? "opacity-90 cursor-pointer" : ""}
-            onClick={() => {
-              setActive(id);
-            }}
-          />
+          <Link to={`/detail/${id}`}>
+            {" "}
+            <img
+              src={img}
+              alt=""
+              className={isHover ? "opacity-90 cursor-pointer" : ""}
+            />
+          </Link>
         </div>
         <h3 className="font-bold text-gray-500 text-center py-1 font-sans">
           {name}
@@ -79,16 +77,6 @@ export const Item = ({ product }) => {
           <ItemCount stock={stock} />
           <CartButton />
         </div>
-      </div>
-      <div className="absolute z-50 w-full">
-        {active === id ? (
-          <ItemDetailContainer
-            id={id}
-            showModal={(active) => setActive(active)}
-          />
-        ) : (
-          <></>
-        )}
       </div>
     </>
   );

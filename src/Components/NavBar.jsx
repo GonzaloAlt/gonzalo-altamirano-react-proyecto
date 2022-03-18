@@ -7,7 +7,7 @@ import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: "HOME", to: "/home", current: false },
+  { name: "TIENDA", to: "/store", current: false },
   { name: "CERVEZAS", to: "/store/beer", current: false },
   { name: "VINOS", to: "/store/wine", current: false },
   { name: "ESPIRITUOSAS", to: "/store/spirit", current: false },
@@ -44,17 +44,20 @@ export default function Example() {
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                  <img
-                    className="block lg:hidden h-4 w-auto"
-                    src={theDudeLogoSmall}
-                    alt="the Dude logo"
-                  />
-                  <img
-                    className="hidden lg:block h-4 w-auto"
-                    src={theDudeLogo}
-                    alt="the Dude logo"
-                  />
+                  <Link to={"/home"}>
+                    <img
+                      className="block lg:hidden h-4 w-auto"
+                      src={theDudeLogoSmall}
+                      alt="the Dude logo"
+                    />
+                    <img
+                      className="hidden lg:block h-4 w-auto"
+                      src={theDudeLogo}
+                      alt="the Dude logo"
+                    />
+                  </Link>
                 </div>
+
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-3">
                     {navigation.map((item) => (

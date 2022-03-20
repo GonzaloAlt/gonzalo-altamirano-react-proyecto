@@ -1,16 +1,18 @@
 import React from "react";
-import { CartButtonMini } from "./CartButtonMini";
+import { CartButton } from "./CartButton";
+import ItemCount from "./ItemCount";
 
 export const ItemDetail = ({ product }) => {
   return (
     <div className="text-gray-700 body-font overflow-hidden bg-white">
-      <div className="container px-5 py-24 mx-auto">
+      <div className="container px-5 py-24 mx-auto relative">
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
           <img
             alt="ecommerce"
             className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
             src={product.img}
           />
+
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
             <h2 className="text-sm title-font text-gray-500 tracking-widest">
               THE DUDE SHOP
@@ -23,9 +25,9 @@ export const ItemDetail = ({ product }) => {
                 <svg
                   fill="currentColor"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="w-4 h-4 text-red-500"
                   viewBox="0 0 24 24"
                 >
@@ -34,9 +36,9 @@ export const ItemDetail = ({ product }) => {
                 <svg
                   fill="currentColor"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="w-4 h-4 text-red-500"
                   viewBox="0 0 24 24"
                 >
@@ -45,9 +47,9 @@ export const ItemDetail = ({ product }) => {
                 <svg
                   fill="currentColor"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="w-4 h-4 text-red-500"
                   viewBox="0 0 24 24"
                 >
@@ -56,9 +58,9 @@ export const ItemDetail = ({ product }) => {
                 <svg
                   fill="currentColor"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="w-4 h-4 text-red-500"
                   viewBox="0 0 24 24"
                 >
@@ -67,9 +69,9 @@ export const ItemDetail = ({ product }) => {
                 <svg
                   fill="none"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="w-4 h-4 text-red-500"
                   viewBox="0 0 24 24"
                 >
@@ -81,9 +83,9 @@ export const ItemDetail = ({ product }) => {
                 <div className="text-gray-500">
                   <svg
                     fill="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-5 h-5"
                     viewBox="0 0 24 24"
                   >
@@ -93,9 +95,9 @@ export const ItemDetail = ({ product }) => {
                 <div className="ml-2 text-gray-500">
                   <svg
                     fill="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-5 h-5"
                     viewBox="0 0 24 24"
                   >
@@ -105,9 +107,9 @@ export const ItemDetail = ({ product }) => {
                 <div className="ml-2 text-gray-500">
                   <svg
                     fill="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-5 h-5"
                     viewBox="0 0 24 24"
                   >
@@ -121,31 +123,37 @@ export const ItemDetail = ({ product }) => {
               <div className="flex">
                 <span className="mr-3">Tipo:</span>
                 {product.style}
-                {/* <button className="border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none"></button>
-                <button className="border-2 border-gray-300 ml-1 bg-gray-700 rounded-full w-6 h-6 focus:outline-none"></button>
-                <button className="border-2 border-gray-300 ml-1 bg-red-500 rounded-full w-6 h-6 focus:outline-none"></button> */}
               </div>
+
               <div className="flex ml-6 items-center">
                 <span className="mr-3">IBU:</span>
                 <div className="relative">
-                  <div className="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
-                    <span className="mr-3">{product.IBU}</span>
-                  </div>
+                  <span className="mr-3">{product.IBU}</span>
+
                   <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center"></span>
                 </div>
               </div>
             </div>
+            <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
+              <div className="flex">
+                <span className="mr-3 title-font font-medium text-2xl text-gray-900">
+                  ${product.price}
+                </span>
+              </div>
+            </div>
             <div className="flex">
               <span className="title-font font-medium text-2xl text-gray-900">
-                ${product.price}
+                <ItemCount stock={product.stock} itemCountStyle={false} />
               </span>
-              <CartButtonMini />
+
+              <CartButton cartButtonStyle={false} />
+
               <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                 <svg
                   fill="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="w-5 h-5"
                   viewBox="0 0 24 24"
                 >
@@ -154,6 +162,9 @@ export const ItemDetail = ({ product }) => {
               </button>
             </div>
           </div>
+          {/* <span className="title-font font-medium text-2xl text-gray-900 bottom-0">
+            ${product.price}
+          </span> */}
         </div>
       </div>
     </div>

@@ -1,8 +1,13 @@
 import stock from "../stock.JSON";
 
-export const getProduct = async (id) => {
+export const getProductList = async () => {
   const url = stock;
   const response = await fetch(url);
   const data = await response.json();
-  return data[id - 1] || data;
+  return data;
+};
+
+export const getProduct = async (id) => {
+  const data = await getProductList();
+  return data[id - 1];
 };

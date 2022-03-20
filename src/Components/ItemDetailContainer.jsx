@@ -4,6 +4,7 @@ import { getProduct } from "../Helpers/APICall";
 import { asyncMockProduct } from "../Helpers/asyncMock";
 import { Loading } from "./Loading";
 import { useParams } from "react-router-dom";
+import { Page404 } from "./Page404";
 
 export const ItemDetailContainer = () => {
   const [productId, setProductId] = useState(true);
@@ -16,7 +17,9 @@ export const ItemDetailContainer = () => {
       .then(() => {
         setIsLoaded(true);
         setShow(true);
-        getProduct(itemId).then((response) => setProductId(response));
+        getProduct(itemId).then((response) => {
+          response ? setProductId(response) : setShow(false);
+        });
       })
       .catch((e) => {
         setShow(false);
@@ -29,17 +32,7 @@ export const ItemDetailContainer = () => {
     <>
       {isLoaded ? (
         <div>
-          <div>
-            {show ? (
-              <ItemDetail product={productId} />
-            ) : (
-              <div className="flex justify-center text-center text-gray-500 my-40  sm:text-lg sm:max-w-xl sm:mx-auto  md:text-xl ">
-                <h2>
-                  Lo sentimos, no tenemos productos para mostrar en este momento
-                </h2>{" "}
-              </div>
-            )}
-          </div>
+          <div>{show ? <ItemDetail product={productId} /> : <Page404 />}</div>
         </div>
       ) : (
         <Loading />

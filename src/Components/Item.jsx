@@ -25,7 +25,7 @@ export const Item = ({ product }) => {
   return (
     <>
       <div
-        className="sm:w-4/12 sm:px-6 xl:w-1/5  xl:px-16 py-9 "
+        className="sm:w-4/12 sm:px-6 xl:w-1/4  xl:px-16 py-6 "
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -58,7 +58,7 @@ export const Item = ({ product }) => {
               />
             </div>
           )}
-          <Link to={`/detail/${id}`}>
+          <Link to={`/item/${id}`}>
             {" "}
             <img
               src={img}
@@ -74,8 +74,8 @@ export const Item = ({ product }) => {
           ${price}
         </h3>
         <div className={visibility ? "" : "invisible"}>
-          <ItemCount stock={stock} />
-          <CartButton />
+          <ItemCount stock={stock} itemCountStyle={true} />
+          <CartButton cartButtonStyle={true} />
         </div>
       </div>
     </>

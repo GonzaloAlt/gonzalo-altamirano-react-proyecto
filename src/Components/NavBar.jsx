@@ -93,7 +93,7 @@ export default function Example() {
                       />
                     </Menu.Button>
                   </div>
-                  <Transition
+                  {/* <Transition
                     as={Fragment}
                     enter="transition ease-out duration-100"
                     enterFrom="transform opacity-0 scale-95"
@@ -143,7 +143,7 @@ export default function Example() {
                         )}
                       </Menu.Item>
                     </Menu.Items>
-                  </Transition>
+                  </Transition> */}
                 </Menu>
               </div>
             </div>
@@ -153,9 +153,6 @@ export default function Example() {
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
                 <Disclosure.Button
-                  key={item.name}
-                  as="Link"
-                  to={item.to}
                   className={classNames(
                     item.current
                       ? "bg-red-rug-700 text-white"
@@ -163,8 +160,11 @@ export default function Example() {
                     "block px-3 py-2 rounded-md text-base font-medium"
                   )}
                   aria-current={item.current ? "page" : undefined}
+                  key={item.name}
                 >
-                  {item.name}
+                  <Link as="Link" to={item.to}>
+                    {item.name}
+                  </Link>
                 </Disclosure.Button>
               ))}
             </div>

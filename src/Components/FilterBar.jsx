@@ -23,9 +23,7 @@ export const FilterBar = () => {
       focus:text-gray-700 focus:bg-white focus:border-red-rug-500 focus:outline-none"
           aria-label="Default select example"
         >
-          <option defaultValue disabled>
-            Seleccione la opción
-          </option>
+          <option defaultValue>Seleccione la opción</option>
           <option value="1">Alfabeticamente</option>
           <option value="2">Menor a mayor precio</option>
           <option value="3">Mayor a menos precio</option>

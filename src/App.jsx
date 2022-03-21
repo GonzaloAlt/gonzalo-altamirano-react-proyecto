@@ -21,12 +21,13 @@ function App() {
         </header>
 
         <Routes>
+          <Route path="*" element={<Page404 />} />
           <Route path="/" element={<Title />} />
           <Route path="/home" element={<Title />} />
           <Route path="/store" element={<ItemListContainer />} />
           <Route path="/store/:category" element={<ItemListContainer />} />
           <Route path="/item/:itemId" element={<ItemDetailContainer />} />
-          <Route path="*" element={<Page404 />} />
+
           {/* <Route element={<Page404 />} /> */}
         </Routes>
 

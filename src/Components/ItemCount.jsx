@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export const ItemCount = ({ stock, itemCountStyle }) => {
-  const [count, setCount] = useState(1);
+export const ItemCount = ({ stock, count, setCount, itemCountStyle }) => {
   const [renderStyle, setRenderStyle] = useState(true);
 
   const onAdd = () => {

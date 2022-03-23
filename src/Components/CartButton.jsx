@@ -2,7 +2,7 @@ import React from "react";
 import { ShoppingCartIcon } from "@heroicons/react/outline";
 import { useState, useEffect } from "react";
 
-export const CartButton = ({ cartButtonStyle }) => {
+export const CartButton = ({ cartButtonStyle, addToCart, showCartButton }) => {
   const [renderStyle, setRenderStyle] = useState(true);
 
   useEffect(() => {
@@ -12,7 +12,10 @@ export const CartButton = ({ cartButtonStyle }) => {
   return (
     <>
       {renderStyle ? (
-        <button className="inline-flex justify-center items-center bg-red-rug-700  hover:bg-gradient-to-r from-red-rug-700 to-red-rug-500 text-white  py-2 px-4 my-2 rounded w-full">
+        <button
+          onClick={addToCart}
+          className="inline-flex justify-center items-center bg-red-rug-700  hover:bg-gradient-to-r from-red-rug-700 to-red-rug-500 text-white  py-2 px-4 my-2 rounded w-full"
+        >
           Agregar al carrito
           <ShoppingCartIcon
             className="h-6 w-6 stroke-white mx-2"
@@ -20,7 +23,13 @@ export const CartButton = ({ cartButtonStyle }) => {
           />
         </button>
       ) : (
-        <button className="flex ml-auto text-white bg-red-rug-700 border-0 py-2 px-6 focus:outline-none hover:bg-red-rug-500 rounded">
+        <button
+          onClick={() => {
+            addToCart();
+            showCartButton();
+          }}
+          className="flex ml-auto text-white bg-red-rug-700 border-0 py-2 px-6 focus:outline-none hover:bg-red-rug-500 rounded"
+        >
           Agregar
         </button>
       )}

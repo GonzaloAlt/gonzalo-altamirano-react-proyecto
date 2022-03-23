@@ -3,12 +3,14 @@ import { CartButton } from "./CartButton";
 import { useState } from "react";
 import { HeartIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
 
 export const Item = ({ product }) => {
   const { id, name, img, price, offer, stock } = product;
   const [visibility, setVisibility] = useState(false);
   const [isHover, setIsHover] = useState(false);
   const [fillLike, setFillLike] = useState("#ffffff");
+  const [count, setCount] = useState(1);
 
   function handleMouseEnter() {
     setVisibility(true);
@@ -21,6 +23,22 @@ export const Item = ({ product }) => {
   function colorLike() {
     fillLike !== "#ffd050" ? setFillLike("#ffd050") : setFillLike("#ffffff");
   }
+
+  const addToCart = () => {
+    const cartItem = {
+      id,
+      img,
+      name,
+      price,
+      count,
+    };
+    console.log(cartItem);
+    swal({
+      title: "Producto agregado!",
+      text: `Agregaste ${cartItem.name} X ${cartItem.count}`,
+      icon: "success",
+    });
+  };
 
   return (
     <>
@@ -74,8 +92,13 @@ export const Item = ({ product }) => {
           ${price}
         </h3>
         <div className={visibility ? "" : "invisible"}>
-          <ItemCount stock={stock} itemCountStyle={true} />
-          <CartButton cartButtonStyle={true} />
+          <ItemCount
+            stock={stock}
+            itemCountStyle={true}
+            count={count}
+            setCount={setCount}
+          />
+          <CartButton cartButtonStyle={true} addToCart={addToCart} />
         </div>
       </div>
     </>

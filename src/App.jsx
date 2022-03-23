@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { Footer } from "./Components/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ItemDetailContainer } from "./Components/ItemDetailContainer";
+import { Cart } from "./Components/Cart";
 
 function App() {
   useEffect(() => {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/store" element={<ItemListContainer />} />
           <Route path="/store/:category" element={<ItemListContainer />} />
           <Route path="/item/:itemId" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<Cart />} />
 
           {/* <Route element={<Page404 />} /> */}
         </Routes>

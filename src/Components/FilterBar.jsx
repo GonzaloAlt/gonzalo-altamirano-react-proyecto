@@ -1,6 +1,7 @@
 import React from "react";
+import { sortProductsMin, sortProductsMax } from "../Helpers/filters";
 
-export const FilterBar = () => {
+export const FilterBar = ({ products }) => {
   return (
     <div className="flex justify-end sm:px-[20%] pt-10">
       <span className="pr-2 py-1.5">Filtrar por:</span>
@@ -24,9 +25,10 @@ export const FilterBar = () => {
           aria-label="Default select example"
         >
           <option defaultValue>Seleccione la opción</option>
-          <option value="1">Alfabeticamente</option>
-          <option value="2">Menor a mayor precio</option>
-          <option value="3">Mayor a menos precio</option>
+          <option value="1">A-Z</option>
+          <option value="2">Z-A</option>
+          <option value="3">Menor a mayor precio</option>
+          <option value="4">Mayor a menos precio</option>
         </select>
       </div>
     </div>

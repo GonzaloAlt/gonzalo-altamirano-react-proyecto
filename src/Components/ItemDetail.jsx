@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { CartButton } from "./CartButton";
 import ItemCount from "./ItemCount";
 import { useState } from "react";
-import swal from "sweetalert";
 import { Link } from "react-router-dom";
+import { CartContext } from "../Context/CartContext";
 
 export const ItemDetail = ({ product }) => {
   const { id, img, name, detail, style, IBU, price, stock } = product;
   const [count, setCount] = useState(1);
-  const [renderCartBtn, setRenderCartBtn] = useState(false);
+  const { addToCart, isProductInCart, addToExistingProd } =
+    useContext(CartContext);
+  // console.log(cart);
 
-  const addToCart = () => {
+  const pushItem = () => {
     const cartItem = {
       id,
       img,
@@ -18,15 +20,8 @@ export const ItemDetail = ({ product }) => {
       price,
       count,
     };
-    console.log(cartItem);
-    swal({
-      title: "Producto agregado!",
-      text: `Agregaste ${cartItem.name} X ${cartItem.count}`,
-      icon: "success",
-    });
-  };
-  const showCartButton = () => {
-    return setRenderCartBtn(true);
+    if (!isProductInCart(id)) addToCart(cartItem);
+    if (isProductInCart(id)) addToExistingProd(cartItem);
   };
 
   return (
@@ -176,7 +171,7 @@ export const ItemDetail = ({ product }) => {
                   setCount={setCount}
                 />
               </span>
-              {renderCartBtn && (
+              {isProductInCart(id) && (
                 <Link
                   to={"/cart"}
                   className="flex ml-auto text-white bg-[#014801] border-0 py-2 px-4 focus:outline-none hover:bg-[#345434] rounded"
@@ -184,11 +179,7 @@ export const ItemDetail = ({ product }) => {
                   <button>Ir al carrito</button>
                 </Link>
               )}
-              <CartButton
-                cartButtonStyle={false}
-                addToCart={addToCart}
-                showCartButton={showCartButton}
-              />
+              <CartButton cartButtonStyle={false} addToCart={pushItem} />
 
               <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                 <svg

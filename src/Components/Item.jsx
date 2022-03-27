@@ -1,9 +1,9 @@
 import ItemCount from "./ItemCount";
 import { CartButton } from "./CartButton";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { HeartIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
-import swal from "sweetalert";
+import { CartContext } from "../Context/CartContext";
 
 export const Item = ({ product }) => {
   const { id, name, img, price, offer, stock } = product;
@@ -11,6 +11,8 @@ export const Item = ({ product }) => {
   const [isHover, setIsHover] = useState(false);
   const [fillLike, setFillLike] = useState("#ffffff");
   const [count, setCount] = useState(1);
+  const { addToCart, isProductInCart, addToExistingProd, limitStock } =
+    useContext(CartContext);
 
   function handleMouseEnter() {
     setVisibility(true);
@@ -24,20 +26,18 @@ export const Item = ({ product }) => {
     fillLike !== "#ffd050" ? setFillLike("#ffd050") : setFillLike("#ffffff");
   }
 
-  const addToCart = () => {
+  const pushItem = () => {
     const cartItem = {
       id,
       img,
       name,
       price,
       count,
+      stock,
     };
-    console.log(cartItem);
-    swal({
-      title: "Producto agregado!",
-      text: `Agregaste ${cartItem.name} X ${cartItem.count}`,
-      icon: "success",
-    });
+    if (!isProductInCart(id)) addToCart(cartItem);
+    if (isProductInCart(id) && limitStock(cartItem))
+      addToExistingProd(cartItem);
   };
 
   return (
@@ -49,8 +49,14 @@ export const Item = ({ product }) => {
       >
         <div className="w-full">
           {offer ? (
-            <div className=" relative z-40 flex flex-row justify-between items-center">
-              <h4 className="absolute bg-[#ffd050] rounded-full p-2 left-0">
+            <div className=" relative z-40 flex flex-row justify-between items-center ">
+              <h4
+                className={
+                  isHover
+                    ? "absolute bg-[#ffd050] rounded-full p-2 left-0 animate-bounce"
+                    : "absolute bg-[#ffd050] rounded-full p-2 left-0"
+                }
+              >
                 -{offer}%
               </h4>
               <HeartIcon
@@ -81,7 +87,7 @@ export const Item = ({ product }) => {
             <img
               src={img}
               alt=""
-              className={isHover ? "opacity-90 cursor-pointer" : ""}
+              className={isHover && "opacity-90 cursor-pointer"}
             />
           </Link>
         </div>
@@ -98,7 +104,7 @@ export const Item = ({ product }) => {
             count={count}
             setCount={setCount}
           />
-          <CartButton cartButtonStyle={true} addToCart={addToCart} />
+          <CartButton cartButtonStyle={true} addToCart={pushItem} />
         </div>
       </div>
     </>

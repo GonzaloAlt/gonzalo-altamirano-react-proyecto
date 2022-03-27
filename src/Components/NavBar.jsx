@@ -156,7 +156,7 @@ export default function Example() {
                   className={classNames(
                     item.current
                       ? "bg-red-rug-700 text-white"
-                      : "text-gray-300 hover:bg-red-rug-700 hover:text-white",
+                      : "text-gray-100 hover:bg-red-rug-700 hover:text-white",
                     "block px-3 py-2 rounded-md text-base font-medium"
                   )}
                   aria-current={item.current ? "page" : undefined}

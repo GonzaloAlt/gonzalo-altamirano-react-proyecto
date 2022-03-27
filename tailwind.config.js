@@ -15,7 +15,19 @@ module.exports = {
         },
         SmoochSans: ["Smooch Sans", "sans-serif"],
       },
-      animation: ["animate-spin"],
+      keyframes: {
+        wiggle: {
+          "0%, 100%": {
+            transform: "rotate(-8deg)",
+          },
+          "50%": {
+            transform: "rotate(8deg)",
+          },
+        },
+      },
+      animation: {
+        wiggle: "wiggle 0.3s ease-in-out",
+      },
     },
   },
   plugins: [],

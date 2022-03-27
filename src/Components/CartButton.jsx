@@ -2,7 +2,7 @@ import React from "react";
 import { ShoppingCartIcon } from "@heroicons/react/outline";
 import { useState, useEffect } from "react";
 
-export const CartButton = ({ cartButtonStyle, addToCart, showCartButton }) => {
+export const CartButton = ({ cartButtonStyle, addToCart }) => {
   const [renderStyle, setRenderStyle] = useState(true);
 
   useEffect(() => {
@@ -26,7 +26,6 @@ export const CartButton = ({ cartButtonStyle, addToCart, showCartButton }) => {
         <button
           onClick={() => {
             addToCart();
-            showCartButton();
           }}
           className="flex ml-auto text-white bg-red-rug-700 border-0 py-2 px-6 focus:outline-none hover:bg-red-rug-500 rounded"
         >

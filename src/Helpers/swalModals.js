@@ -23,3 +23,10 @@ export const swalEmpty = () => {
     icon: "success",
   });
 };
+
+export const swalDeleteSucces = (name) => {
+  swal(`${name} eliminado`, {
+    buttons: false,
+    timer: 800,
+  });
+};

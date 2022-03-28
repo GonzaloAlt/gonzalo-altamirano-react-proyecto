@@ -91,7 +91,7 @@ export const Item = ({ product }) => {
             />
           </Link>
         </div>
-        <h3 className="font-bold text-gray-500 text-center py-1 font-sans">
+        <h3 className="font-bold text-gray-600 text-center py-1 font-sans">
           {name}
         </h3>
         <h3 className="font-bold text-gray-700 text-center py-1 font-mono">

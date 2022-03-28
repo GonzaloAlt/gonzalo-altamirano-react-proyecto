@@ -8,7 +8,7 @@ import { CartContext } from "../Context/CartContext";
 export const ItemDetail = ({ product }) => {
   const { id, img, name, detail, style, IBU, price, stock } = product;
   const [count, setCount] = useState(1);
-  const { addToCart, isProductInCart, addToExistingProd } =
+  const { addToCart, isProductInCart, addToExistingProd, limitStock } =
     useContext(CartContext);
   // console.log(cart);
 
@@ -19,9 +19,11 @@ export const ItemDetail = ({ product }) => {
       name,
       price,
       count,
+      stock,
     };
     if (!isProductInCart(id)) addToCart(cartItem);
-    if (isProductInCart(id)) addToExistingProd(cartItem);
+    if (isProductInCart(id) && limitStock(cartItem))
+      addToExistingProd(cartItem);
   };
 
   return (

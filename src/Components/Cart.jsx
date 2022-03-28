@@ -15,10 +15,10 @@ export const Cart = () => {
   return (
     <>
       {cart.length > 0 ? (
-        <div className="flex flex-row justify-between flex-wrap px-[17%]  pt-[5%] pb-[10%] w-full">
+        <div className="flex flex-row justify-between flex-wrap px-[12%] lg:px-[17%]  pt-[5%] pb-[10%] w-full">
           <div className="w-full lg:w-[50%]">
             <ul className="-my-6 divide-y divide-gray-200  mt-8">
-              <li className="text-5xl font-bold pb-6 text-black">
+              <li className="text-3xl lg:text-5xl font-bold pb-6 text-black">
                 {" "}
                 Mi carrito
               </li>
@@ -34,7 +34,7 @@ export const Cart = () => {
 
                   <div className="ml-4 flex flex-1 flex-col">
                     <div>
-                      <div className="flex justify-between text-lg font-medium text-gray-500">
+                      <div className="flex justify-between sm:text-lg font-medium text-gray-500">
                         <h3>{product.name}</h3>
                         <p className="ml-4">${product.price * product.count}</p>
                       </div>
@@ -60,14 +60,14 @@ export const Cart = () => {
             </ul>
             <div className="flex flex-row justify-between mt-6">
               <Link to="/store">
-                <button className="py-2 px-4 flex flex-row text-red-rug-500 font-medium">
+                <button className="py-2 px-4 flex flex-row text-red-rug-500 hover:text-red-rug-600 font-medium">
                   <ArrowNarrowLeft className="w-6 h-6 mr-2" />
                   Seguir comprando
                 </button>
               </Link>
               <button
                 onClick={clearCart}
-                className="rounded py-2 px-4 flex flex-row text-white bg-red-rug-700"
+                className="rounded py-2 px-4 flex flex-row text-white bg-red-rug-700 hover:bg-red-rug-500"
               >
                 <TrashIcon className="w-6 h-6" />
                 Vaciar el carrito
@@ -78,7 +78,7 @@ export const Cart = () => {
           <div className="w-full lg:w-[40%]  bg-gray-100 mt-6">
             <div className="flex flex-col  h-auto lg:px-8 md:px-7 px-4 lg:py-20 md:py-10 py-6 justify-between">
               <div>
-                <p className="lg:text-4xl text-3xl font-black leading-9 text-gray-800 pb-4">
+                <p className="lg:text-4xl text-3xl font-bold leading-9 text-gray-800 pb-4">
                   Resumen de compra
                 </p>
                 <div className="h-72  overflow-y-auto text-gray-800 pr-6 -mr-8 ">
@@ -102,9 +102,7 @@ export const Cart = () => {
                   </p>
                 </div>
                 <div className="flex items-center justify-between pt-5">
-                  <p className="text-base leading-none text-gray-800 ">
-                    Shipping
-                  </p>
+                  <p className="text-base leading-none text-gray-800 ">Envío</p>
                   <p className="text-base leading-none text-gray-800 ">$0</p>
                 </div>
                 <div className="flex items-center justify-between pt-5">
@@ -123,7 +121,7 @@ export const Cart = () => {
                 </div>
                 <button
                   onclick="checkoutHandler1(true)"
-                  className="text-base leading-none w-full py-5 bg-red-rug-700  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white"
+                  className="rounded text-base leading-none w-full py-5 bg-red-rug-700 hover:bg-red-rug-500  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white"
                 >
                   Finalizar compra
                 </button>

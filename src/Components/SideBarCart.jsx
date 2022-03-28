@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 export const SideBarCart = () => {
   const { cart, removeFromCart, clearCart, getTotalAmount } =
     useContext(CartContext);
-  const deleteElement = (id) => {
-    removeFromCart(id);
+  const deleteElement = (id, name) => {
+    removeFromCart(id, name);
   };
 
   return (
@@ -56,7 +56,9 @@ export const SideBarCart = () => {
 
                       <div className="flex">
                         <button
-                          onClick={() => deleteElement(product.id)}
+                          onClick={() =>
+                            deleteElement(product.id, product.name)
+                          }
                           type="button"
                           className="font-medium text-red-rug-600 hover:text-red-rug-400"
                         >

@@ -93,7 +93,7 @@ export default function Example() {
                       />
                     </Menu.Button>
                   </div>
-                  {/* <Transition
+                  <Transition
                     as={Fragment}
                     enter="transition ease-out duration-100"
                     enterFrom="transform opacity-0 scale-95"
@@ -106,17 +106,17 @@ export default function Example() {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                            to="#"
+                            to="/favourites"
                             className={classNames(
                               active ? "bg-red-rug-400" : "",
                               "block px-4 py-2 text-sm text-gray-700 "
                             )}
                           >
-                            Your Profile
+                            Mis Favoritos
                           </Link>
                         )}
                       </Menu.Item>
-                      <Menu.Item>
+                      {/* <Menu.Item>
                         {({ active }) => (
                           <Link
                             to="#"
@@ -128,8 +128,8 @@ export default function Example() {
                             Settings
                           </Link>
                         )}
-                      </Menu.Item>
-                      <Menu.Item>
+                      </Menu.Item> */}
+                      {/* <Menu.Item>
                         {({ active }) => (
                           <Link
                             to="#"
@@ -141,9 +141,9 @@ export default function Example() {
                             Sign out
                           </Link>
                         )}
-                      </Menu.Item>
+                      </Menu.Item> */}
                     </Menu.Items>
-                  </Transition> */}
+                  </Transition>
                 </Menu>
               </div>
             </div>

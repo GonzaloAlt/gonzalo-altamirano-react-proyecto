@@ -1,5 +1,10 @@
 import { createContext } from "react";
-import { swalSuccess, swalWarning, swalEmpty } from "../Helpers/swalModals";
+import {
+  swalSuccess,
+  swalWarning,
+  swalEmpty,
+  swalDeleteSucces,
+} from "../Helpers/swalModals";
 import { useState } from "react";
 export const CartContext = createContext();
 
@@ -11,7 +16,8 @@ export const CartContextProvider = ({ children }) => {
     const { name, count } = item;
     swalSuccess(name, count);
   };
-  const removeFromCart = (id) => {
+  const removeFromCart = (id, name) => {
+    swalDeleteSucces(name);
     return setCart(cart.filter((item) => item.id !== id));
   };
 

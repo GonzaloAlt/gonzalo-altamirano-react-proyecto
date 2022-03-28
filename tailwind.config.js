@@ -21,7 +21,7 @@ module.exports = {
             transform: "rotate(-8deg)",
           },
           "50%": {
-            transform: "rotate(deg)",
+            transform: "rotate(8deg)",
           },
         },
         beat: {

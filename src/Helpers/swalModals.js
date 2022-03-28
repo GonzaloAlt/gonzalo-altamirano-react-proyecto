@@ -30,3 +30,11 @@ export const swalDeleteSucces = (name) => {
     timer: 800,
   });
 };
+
+export const swalAddFavs = () => {
+  swal("Producto agregado a favoritos", {
+    icon: "success",
+    buttons: false,
+    timer: 800,
+  });
+};

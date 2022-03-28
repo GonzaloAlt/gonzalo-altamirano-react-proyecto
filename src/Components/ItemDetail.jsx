@@ -2,28 +2,47 @@ import React, { useContext } from "react";
 import { CartButton } from "./CartButton";
 import ItemCount from "./ItemCount";
 import { useState } from "react";
+import { HeartIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
+import { FavouritesContext } from "../Context/FavouritesContext";
 
 export const ItemDetail = ({ product }) => {
   const { id, img, name, detail, style, IBU, price, stock } = product;
+  const [isFav, setIsFav] = useState("");
   const [count, setCount] = useState(1);
   const { addToCart, isProductInCart, addToExistingProd, limitStock } =
     useContext(CartContext);
-  // console.log(cart);
+  const {
+    favourites,
+    addToFavourites,
+    removeFromFavourites,
+    isProductInFavourites,
+  } = useContext(FavouritesContext);
 
-  const pushItem = () => {
-    const cartItem = {
-      id,
-      img,
-      name,
-      price,
-      count,
-      stock,
-    };
-    if (!isProductInCart(id)) addToCart(cartItem);
-    if (isProductInCart(id) && limitStock(cartItem))
-      addToExistingProd(cartItem);
+  const item = {
+    id,
+    img,
+    name,
+    price,
+    count,
+    stock,
+  };
+
+  const pushToCart = () => {
+    if (!isProductInCart(id)) addToCart(item);
+    if (isProductInCart(id) && limitStock(item)) addToExistingProd(item);
+  };
+  const toggleFavourites = () => {
+    !isProductInFavourites(id)
+      ? addToFavourites(item)
+      : removeFromFavourites(id);
+  };
+  const setFavAnimation = () => {
+    setIsFav("animate-beat");
+    setTimeout(() => {
+      setIsFav("");
+    }, 220);
   };
 
   return (
@@ -176,24 +195,26 @@ export const ItemDetail = ({ product }) => {
               {isProductInCart(id) && (
                 <Link
                   to={"/cart"}
-                  className="flex ml-auto text-white bg-[#014801] border-0 py-2 px-4 focus:outline-none hover:bg-[#345434] rounded"
+                  className="flex ml-auto text-white bg-[bg-red] border-0 py-2 px-4 focus:outline-none hover:bg-[#345434] rounded"
                 >
                   <button>Ir al carrito</button>
                 </Link>
               )}
-              <CartButton cartButtonStyle={false} addToCart={pushItem} />
+              <CartButton cartButtonStyle={false} addToCart={pushToCart} />
 
-              <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-                <svg
-                  fill="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className="w-5 h-5"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
-                </svg>
+              <button
+                onClick={() => {
+                  toggleFavourites();
+                  setFavAnimation();
+                  console.log(favourites);
+                }}
+                className={`rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4`}
+              >
+                <HeartIcon
+                  className={`w-5 h-5 ${isFav}`}
+                  fill={isProductInFavourites(id) ? "#a33828" : "white"}
+                  stroke="#a33828"
+                />
               </button>
             </div>
           </div>

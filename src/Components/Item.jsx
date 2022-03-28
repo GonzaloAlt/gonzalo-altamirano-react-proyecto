@@ -1,18 +1,30 @@
 import ItemCount from "./ItemCount";
 import { CartButton } from "./CartButton";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { HeartIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
+import { FavouritesContext } from "../Context/FavouritesContext";
 
 export const Item = ({ product }) => {
   const { id, name, img, price, offer, stock } = product;
   const [visibility, setVisibility] = useState(false);
   const [isHover, setIsHover] = useState(false);
   const [fillLike, setFillLike] = useState("#ffffff");
+  const [isFav, setIsFav] = useState("");
   const [count, setCount] = useState(1);
   const { addToCart, isProductInCart, addToExistingProd, limitStock } =
     useContext(CartContext);
+  const {
+    favourites,
+    addToFavourites,
+    removeFromFavourites,
+    isProductInFavourites,
+  } = useContext(FavouritesContext);
+
+  useEffect(() => {
+    isProductInFavourites(id) ? setFillLike("#ffd050") : setFillLike("#ffffff");
+  }, [favourites]);
 
   function handleMouseEnter() {
     setVisibility(true);
@@ -22,22 +34,29 @@ export const Item = ({ product }) => {
     setVisibility(false);
     setIsHover(false);
   }
-  function colorLike() {
-    fillLike !== "#ffd050" ? setFillLike("#ffd050") : setFillLike("#ffffff");
-  }
 
-  const pushItem = () => {
-    const cartItem = {
-      id,
-      img,
-      name,
-      price,
-      count,
-      stock,
-    };
-    if (!isProductInCart(id)) addToCart(cartItem);
-    if (isProductInCart(id) && limitStock(cartItem))
-      addToExistingProd(cartItem);
+  const item = {
+    id,
+    img,
+    name,
+    price,
+    count,
+    stock,
+  };
+  const pushToCart = () => {
+    if (!isProductInCart(id)) addToCart(item);
+    if (isProductInCart(id) && limitStock(item)) addToExistingProd(item);
+  };
+  const toggleFavourites = () => {
+    !isProductInFavourites(id)
+      ? addToFavourites(item)
+      : removeFromFavourites(id);
+  };
+  const setFavAnimation = () => {
+    setIsFav("animate-beat");
+    setTimeout(() => {
+      setIsFav("");
+    }, 220);
   };
 
   return (
@@ -62,10 +81,13 @@ export const Item = ({ product }) => {
               <HeartIcon
                 className={
                   visibility
-                    ? "absolute w-5 h-5 right-0 stroke-[#ffd050]"
+                    ? `absolute w-5 h-5 right-0 stroke-[#ffd050] ${isFav}`
                     : "absolute w-5 h-5 right-0 stroke-[#ffd050] invisible"
                 }
-                onClick={colorLike}
+                onClick={() => {
+                  toggleFavourites();
+                  setFavAnimation();
+                }}
                 fill={fillLike}
               />
             </div>
@@ -74,10 +96,13 @@ export const Item = ({ product }) => {
               <HeartIcon
                 className={
                   visibility
-                    ? "absolute w-5 h-5 right-0 stroke-[#ffd050]"
+                    ? `absolute w-5 h-5 right-0 stroke-[#ffd050] ${isFav}`
                     : "absolute w-5 h-5 right-0 stroke-[#ffd050] invisible"
                 }
-                onClick={colorLike}
+                onClick={() => {
+                  toggleFavourites();
+                  setFavAnimation();
+                }}
                 fill={fillLike}
               />
             </div>
@@ -104,7 +129,7 @@ export const Item = ({ product }) => {
             count={count}
             setCount={setCount}
           />
-          <CartButton cartButtonStyle={true} addToCart={pushItem} />
+          <CartButton cartButtonStyle={true} addToCart={pushToCart} />
         </div>
       </div>
     </>

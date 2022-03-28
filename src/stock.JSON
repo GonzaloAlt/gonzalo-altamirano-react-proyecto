@@ -660,7 +660,7 @@
   },
   {
     "id": 51,
-    "itemType": "spirits",
+    "itemType": "spirit",
     "name": "Licor Tres plumas frutilla",
     "img": "https://i.imgur.com/xtfqZXr.jpg",
     "price": 950,
@@ -673,7 +673,7 @@
   },
   {
     "id": 52,
-    "itemType": "spirits",
+    "itemType": "spirit",
     "name": "Pink Gin Tonic Kymera",
     "img": "https://i.imgur.com/ObkW4vo.jpg",
     "price": 950,
@@ -686,7 +686,7 @@
   },
   {
     "id": 53,
-    "itemType": "spirits",
+    "itemType": "spirit",
     "name": "Vat 69 Apple Vibe Whisky",
     "img": "https://i.imgur.com/Rw9ATXP.jpg",
     "price": 950,
@@ -699,7 +699,7 @@
   },
   {
     "id": 54,
-    "itemType": "spirits",
+    "itemType": "spirit",
     "name": "Cachaca Pitú",
     "img": "https://i.imgur.com/6mmLzHu.jpg",
     "price": 950,
@@ -712,7 +712,7 @@
   },
   {
     "id": 55,
-    "itemType": "spirits",
+    "itemType": "spirit",
     "name": "Vermut Pineral",
     "img": "https://i.imgur.com/a0SVEfx.jpg",
     "price": 950,
@@ -725,7 +725,7 @@
   },
   {
     "id": 56,
-    "itemType": "spirits",
+    "itemType": "spirit",
     "name": "Vat 69 Blend Scotch Whisky",
     "img": "https://i.imgur.com/Xf5JGvu.jpg",
     "price": 950,
@@ -738,7 +738,7 @@
   },
   {
     "id": 57,
-    "itemType": "spirits",
+    "itemType": "spirit",
     "name": "Richmond London dry Gin",
     "img": "https://i.imgur.com/ssGWIkt.jpg",
     "price": 950,
@@ -751,7 +751,7 @@
   },
   {
     "id": 58,
-    "itemType": "spirits",
+    "itemType": "spirit",
     "name": "Sernova Citrus Style",
     "img": "https://i.imgur.com/2AudYkA.jpg",
     "price": 950,
@@ -764,7 +764,7 @@
   },
   {
     "id": 59,
-    "itemType": "spirits",
+    "itemType": "spirit",
     "name": "Pimm's",
     "img": "https://i.imgur.com/4Jl1F4V.jpg",
     "price": 950,
@@ -777,7 +777,7 @@
   },
   {
     "id": 60,
-    "itemType": "spirits",
+    "itemType": "spirit",
     "name": "Vermú Lunfa",
     "img": "https://i.imgur.com/qtgqXd5.jpg",
     "price": 950,
@@ -790,7 +790,7 @@
   },
   {
     "id": 61,
-    "itemType": "spirits",
+    "itemType": "spirit",
     "name": "Smirnoff Vodka",
     "img": "https://i.imgur.com/5wfrL9c.png",
     "price": 950,
@@ -803,7 +803,7 @@
   },
   {
     "id": 62,
-    "itemType": "spirits",
+    "itemType": "spirit",
     "name": "Sernova Vodka Fresh Citrus",
     "img": "https://i.imgur.com/hlPYneG.png",
     "price": 950,
@@ -816,7 +816,7 @@
   },
   {
     "id": 63,
-    "itemType": "spirits",
+    "itemType": "spirit",
     "name": "White Horse Whisky",
     "img": "https://i.imgur.com/HBNQKa9.jpg",
     "price": 950,
@@ -829,7 +829,7 @@
   },
   {
     "id": 64,
-    "itemType": "spirits",
+    "itemType": "spirit",
     "name": "Vermut Punt e Mes",
     "img": "https://i.imgur.com/33I2z9V.jpg",
     "price": 950,
@@ -842,7 +842,7 @@
   },
   {
     "id": 65,
-    "itemType": "spirits",
+    "itemType": "spirit",
     "name": "Smirnoff Vodka",
     "img": "https://i.imgur.com/hFcWO1T.jpg",
     "price": 950,
@@ -855,7 +855,7 @@
   },
   {
     "id": 66,
-    "itemType": "spirits",
+    "itemType": "spirit",
     "name": "Sernova Vodka Wild Berries",
     "img": "https://i.imgur.com/cJUrVQW.png",
     "price": 950,
@@ -868,7 +868,7 @@
   },
   {
     "id": 67,
-    "itemType": "spirits",
+    "itemType": "spirit",
     "name": "Vat 69 Wild Honey",
     "img": "https://i.imgur.com/1VHLfuS.png",
     "price": 950,

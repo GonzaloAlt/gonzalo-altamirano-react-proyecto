@@ -21,12 +21,23 @@ module.exports = {
             transform: "rotate(-8deg)",
           },
           "50%": {
-            transform: "rotate(8deg)",
+            transform: "rotate(deg)",
+          },
+        },
+        beat: {
+          "0%, 100%": {
+            transform: "scale(1);",
+            opacity: "1",
+          },
+          "50%": {
+            transform: "scale(2.4);",
+            opacity: "0.4",
           },
         },
       },
       animation: {
         wiggle: "wiggle 0.3s ease-in-out",
+        beat: "beat 0.25s alternate infinite",
       },
     },
   },

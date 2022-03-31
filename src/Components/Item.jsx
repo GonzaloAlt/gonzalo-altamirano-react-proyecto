@@ -112,7 +112,7 @@ export const Item = ({ product }) => {
             <img
               src={img}
               alt=""
-              className={isHover && "opacity-90 cursor-pointer"}
+              className={isHover ? "opacity-90 cursor-pointer" : ""}
             />
           </Link>
         </div>

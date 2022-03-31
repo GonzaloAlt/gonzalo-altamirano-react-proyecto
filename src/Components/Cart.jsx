@@ -8,8 +8,8 @@ import { ArrowNarrowLeft } from "heroicons-react";
 export const Cart = () => {
   const { cart, removeFromCart, getTotalAmount, clearCart } =
     useContext(CartContext);
-  const deleteElement = (id) => {
-    removeFromCart(id);
+  const deleteElement = (id, name) => {
+    removeFromCart(id, name);
   };
 
   return (
@@ -46,7 +46,9 @@ export const Cart = () => {
 
                       <div className="flex">
                         <button
-                          onClick={() => deleteElement(product.id)}
+                          onClick={() =>
+                            deleteElement(product.id, product.name)
+                          }
                           type="button"
                           className="font-medium text-red-rug-600 hover:text-red-rug-400"
                         >
@@ -119,10 +121,7 @@ export const Cart = () => {
                     ${getTotalAmount()}
                   </p>
                 </div>
-                <button
-                  onclick="checkoutHandler1(true)"
-                  className="rounded text-base leading-none w-full py-5 bg-red-rug-700 hover:bg-red-rug-500  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white"
-                >
+                <button className="rounded text-base leading-none w-full py-5 bg-red-rug-700 hover:bg-red-rug-500  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white">
                   Finalizar compra
                 </button>
               </div>

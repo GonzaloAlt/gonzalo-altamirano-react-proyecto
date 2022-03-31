@@ -8,7 +8,7 @@ import { CartContext } from "../Context/CartContext";
 import { FavouritesContext } from "../Context/FavouritesContext";
 
 export const ItemDetail = ({ product }) => {
-  const { id, img, name, detail, style, IBU, price, stock } = product;
+  const { id, img, name, detail, style, ibu, price, stock } = product;
   const [isFav, setIsFav] = useState("");
   const [count, setCount] = useState(1);
   const { addToCart, isProductInCart, addToExistingProd, limitStock } =
@@ -166,7 +166,7 @@ export const ItemDetail = ({ product }) => {
               <div className="flex ml-6 items-center">
                 <span className="mr-3">IBU:</span>
                 <div className="relative">
-                  <span className="mr-3">{IBU}</span>
+                  <span className="mr-3">{ibu}</span>
 
                   <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center"></span>
                 </div>
@@ -188,13 +188,15 @@ export const ItemDetail = ({ product }) => {
                   setCount={setCount}
                 />
               </span>
-              {isProductInCart(id) && (
+              {isProductInCart(id) ? (
                 <Link
                   to={"/cart"}
                   className="flex ml-auto text-white bg-[#014801] border-0 py-2 px-4 focus:outline-none hover:bg-[#345434] rounded"
                 >
                   <button>Ir al carrito</button>
                 </Link>
+              ) : (
+                <></>
               )}
               <CartButton cartButtonStyle={false} addToCart={pushToCart} />
 

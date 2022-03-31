@@ -1,8 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { ItemList } from "./ItemList";
 import { Loading } from "./Loading";
-import { getProductList } from "../Helpers/APICall";
-import { asyncMockProduct } from "../Helpers/asyncMock";
+import { getDBProductList, getDBCategory } from "../Helpers/APICall";
 import { useParams } from "react-router-dom";
 import { FilterBar } from "./FilterBar";
 import { SideBarCart } from "./SideBarCart";
@@ -16,25 +15,16 @@ function ItemListContainer(props) {
   const { cart } = useContext(CartContext);
 
   useEffect(() => {
-    setIsLoaded(false);
-    asyncMockProduct(show)
-      .then(() => {
-        setIsLoaded(true);
-        getProductList().then((response) => {
-          !category
-            ? setProducts(response)
-            : setProducts(
-                response.filter(
-                  (res) => res[category] || res.itemType === category
-                )
-              );
-        });
-      })
-      .catch((e) => {
-        setShow(false);
-        console.log(e);
-        setIsLoaded(true);
-      });
+    (!category
+      ? getDBProductList().then((response) => setProducts(response))
+      : getDBCategory(category).then((response) => {
+          setProducts(response);
+        })
+    ).catch((e) => {
+      setShow(false);
+      console.log(e);
+    });
+    setIsLoaded(true);
   }, [category]);
 
   return (

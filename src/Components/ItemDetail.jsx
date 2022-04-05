@@ -23,11 +23,13 @@ export const ItemDetail = ({ product }) => {
     price,
     count,
     stock,
+    detail,
+    style,
   };
-
-  const pushToCart = () => {
+  const pushToCart = async () => {
     if (!isProductInCart(id)) addToCart(item);
-    if (isProductInCart(id) && limitStock(item)) addToExistingProd(item);
+    if (isProductInCart(id) && (await limitStock(item)))
+      addToExistingProd(item);
   };
   const toggleFavourites = () => {
     !isProductInFavourites(id)
@@ -183,6 +185,7 @@ export const ItemDetail = ({ product }) => {
               <span className="title-font font-medium text-2xl text-gray-900">
                 <ItemCount
                   stock={stock}
+                  id={id}
                   itemCountStyle={false}
                   count={count}
                   setCount={setCount}

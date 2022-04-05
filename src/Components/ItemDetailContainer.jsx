@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ItemDetail } from "./ItemDetail";
-import { getDBProduct } from "../Helpers/APICall";
+import { getDBProduct } from "../Helpers/DBget";
 import { Loading } from "./Loading";
 import { useParams } from "react-router-dom";
 import { Page404 } from "./Page404";
@@ -15,7 +15,9 @@ export const ItemDetailContainer = () => {
     getDBProduct(itemId)
       .then((response) => {
         response ? setProductId(response) : setShow(false);
-        setIsLoaded(true);
+        setTimeout(() => {
+          setIsLoaded(true);
+        }, 800);
       })
       .catch((e) => {
         setShow(false);

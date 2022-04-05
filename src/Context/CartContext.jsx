@@ -5,6 +5,7 @@ import {
   swalEmpty,
   swalDeleteSucces,
 } from "../Helpers/swalModals";
+import { getDBProductStock } from "../Helpers/DBget";
 import { useState } from "react";
 export const CartContext = createContext();
 
@@ -28,15 +29,20 @@ export const CartContextProvider = ({ children }) => {
     /*Función provisoria, REFACTORIZAR!!!*/
     const existingMatch = cart.filter((item) => item.id === id);
     existingMatch[0].count += count;
-    let index = cart.indexOf(cart.filter((item) => item.id === id));
+    let index = cart.indexOf(existingMatch);
     if (index !== -1) cart[index] = existingMatch[0];
     setCart([...cart]);
     swalSuccess(name, count);
   };
 
-  const limitStock = ({ id, count, stock }) => {
+  // const limitStock = ({ id, count, stock }) => {
+  //   const countInCart = cart.filter((item) => item.id === id)[0].count;
+  //   return countInCart + count <= stock || swalWarning();
+  // };
+  const limitStock = async ({ id, count }) => {
     const countInCart = cart.filter((item) => item.id === id)[0].count;
-    return countInCart + count <= stock || swalWarning();
+    let stock = getDBProductStock(id);
+    return countInCart + count <= (await stock) || swalWarning();
   };
 
   const clearCart = () => {

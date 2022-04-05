@@ -1,7 +1,8 @@
-import React from "react";
-import { sortProductsMin, sortProductsMax } from "../Helpers/filters";
+export const FilterBar = (props) => {
+  const handleEventsOpt = (e) => {
+    props.changeFilter(e.target.value);
+  };
 
-export const FilterBar = ({ products }) => {
   return (
     <div className="flex justify-end sm:px-[20%] pt-10">
       <span className="pr-2 py-1.5">Filtrar por:</span>
@@ -23,12 +24,26 @@ export const FilterBar = ({ products }) => {
       m-0
       focus:text-gray-700 focus:bg-white focus:border-red-rug-500 focus:outline-none"
           aria-label="Default select example"
+          onChange={(e) => handleEventsOpt(e)}
         >
-          <option defaultValue>Seleccione la opción</option>
-          <option value="1">A-Z</option>
-          <option value="2">Z-A</option>
-          <option value="3">Menor a mayor precio</option>
-          <option value="4">Mayor a menos precio</option>
+          <option
+            defaultValue
+            value={JSON.stringify({ property: "", maxmin: "" })}
+          >
+            Seleccione la opción
+          </option>
+          <option value={JSON.stringify({ property: "name", maxmin: "min" })}>
+            A-Z
+          </option>
+          <option value={JSON.stringify({ property: "name", maxmin: "max" })}>
+            Z-A
+          </option>
+          <option value={JSON.stringify({ property: "price", maxmin: "min" })}>
+            Menor a mayor precio
+          </option>
+          <option value={JSON.stringify({ property: "price", maxmin: "max" })}>
+            Mayor a menor precio
+          </option>
         </select>
       </div>
     </div>

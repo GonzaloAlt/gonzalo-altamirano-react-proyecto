@@ -1,31 +1,39 @@
 import { useContext, useEffect, useState } from "react";
 import { ItemList } from "./ItemList";
 import { Loading } from "./Loading";
-import { getDBProductList, getDBCategory } from "../Helpers/APICall";
+import { getDBProductList, getDBCategory } from "../Helpers/DBget";
 import { useParams } from "react-router-dom";
 import { FilterBar } from "./FilterBar";
 import { SideBarCart } from "./SideBarCart";
 import { CartContext } from "../Context/CartContext";
+import { sortProduct } from "../Helpers/filters";
 
 function ItemListContainer(props) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [show, setShow] = useState(true);
   const [products, setProducts] = useState(false);
+  const [filter, setFilter] = useState(false);
   const { category } = useParams();
   const { cart } = useContext(CartContext);
+  const param = JSON.parse(filter);
 
   useEffect(() => {
+    setIsLoaded(false);
     (!category
-      ? getDBProductList().then((response) => setProducts(response))
+      ? getDBProductList().then((response) =>
+          setProducts(sortProduct(response, param.property, param.maxmin))
+        )
       : getDBCategory(category).then((response) => {
-          setProducts(response);
+          setProducts(sortProduct(response, param.property, param.maxmin));
         })
     ).catch((e) => {
       setShow(false);
       console.log(e);
     });
-    setIsLoaded(true);
-  }, [category]);
+    setTimeout(() => {
+      setIsLoaded(true);
+    }, 800);
+  }, [category, filter]);
 
   return (
     <>
@@ -41,7 +49,7 @@ function ItemListContainer(props) {
                     alt=""
                   />
                 </div>
-                <FilterBar products={products} />
+                <FilterBar changeFilter={(filter) => setFilter(filter)} />
 
                 {/* <h2 className="text-center my-10 mt-20 text-4xl tracking-tight font-bold text-gray-900 sm:text-2xl md:text-4xl"> */}
                 {/* Bienvenido <span className="text-red-rug-600">{props.name}</span> */}
@@ -60,7 +68,7 @@ function ItemListContainer(props) {
             <div className="flex justify-center text-center text-gray-500 my-40  sm:text-lg sm:max-w-xl sm:mx-auto  md:text-xl ">
               <h2>
                 Lo sentimos, no tenemos productos para mostrar en este momento
-              </h2>{" "}
+              </h2>
             </div>
           )}
         </>

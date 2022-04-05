@@ -7,7 +7,7 @@ import { CartContext } from "../Context/CartContext";
 import { FavouritesContext } from "../Context/FavouritesContext";
 
 export const Item = ({ product }) => {
-  const { id, name, img, price, offer, stock } = product;
+  const { id, name, img, price, offer, stock, detail, style } = product;
   const [visibility, setVisibility] = useState(false);
   const [isHover, setIsHover] = useState(false);
   const [fillLike, setFillLike] = useState("#ffffff");
@@ -42,10 +42,13 @@ export const Item = ({ product }) => {
     price,
     count,
     stock,
+    detail,
+    style,
   };
-  const pushToCart = () => {
+  const pushToCart = async () => {
     if (!isProductInCart(id)) addToCart(item);
-    if (isProductInCart(id) && limitStock(item)) addToExistingProd(item);
+    if (isProductInCart(id) && (await limitStock(item)))
+      addToExistingProd(item);
   };
   const toggleFavourites = () => {
     !isProductInFavourites(id)
@@ -116,15 +119,16 @@ export const Item = ({ product }) => {
             />
           </Link>
         </div>
-        <h3 className="font-bold text-gray-600 text-center py-1 font-sans">
+        <h3 className=" font-medium text-gray-800 text-center py-1 font-sans">
           {name}
         </h3>
-        <h3 className="font-bold text-gray-700 text-center py-1 font-mono">
+        <h3 className="text-gray-500 text-sm font-light text-center py-1">
           ${price}
         </h3>
         <div className={visibility ? "" : "invisible"}>
           <ItemCount
             stock={stock}
+            id={id}
             itemCountStyle={true}
             count={count}
             setCount={setCount}

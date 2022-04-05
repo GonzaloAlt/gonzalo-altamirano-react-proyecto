@@ -2,7 +2,7 @@ import React from "react";
 import { CartContext } from "../Context/CartContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { TrashIcon } from "@heroicons/react/outline";
+import { TrashIcon, ShoppingCartIcon } from "@heroicons/react/outline";
 import { ArrowNarrowLeft } from "heroicons-react";
 
 export const Cart = () => {
@@ -77,8 +77,11 @@ export const Cart = () => {
             </div>
           </div>
 
-          <div className="w-full lg:w-[40%]  bg-gray-100 mt-6">
-            <div className="flex flex-col  h-auto lg:px-8 md:px-7 px-4 lg:py-20 md:py-10 py-6 justify-between">
+          <div className="w-full lg:w-[40%]  border border-gray-100 mt-[100px] rounded-lg shadow-lg">
+            <div className="bg-red-rug-500 text-white overflow-hidden rounded-full w-20 h-20 -mt-10 mx-auto shadow-lg flex justify-center items-center">
+              <ShoppingCartIcon className="h-12 w-12" />
+            </div>
+            <div className="flex flex-col lg:px-8 md:px-7 px-4  md:py-10 py-6 justify-between">
               <div>
                 <p className="lg:text-4xl text-3xl font-bold leading-9 text-gray-800 pb-4">
                   Resumen de compra
@@ -95,15 +98,15 @@ export const Cart = () => {
                     </div>
                   ))}
                 </div>
-                <div className="flex items-center justify-between pt-16">
+                {/* <div className="flex items-center justify-between pt-16">
                   <p className="text-base leading-none text-gray-800 ">
                     Subtotal:
                   </p>
                   <p className="text-base leading-none text-gray-800 ">
                     ${getTotalAmount()}
                   </p>
-                </div>
-                <div className="flex items-center justify-between pt-5">
+                </div> */}
+                {/* <div className="flex items-center justify-between pt-5">
                   <p className="text-base leading-none text-gray-800 ">Envío</p>
                   <p className="text-base leading-none text-gray-800 ">$0</p>
                 </div>
@@ -112,7 +115,7 @@ export const Cart = () => {
                     Descuentos
                   </p>
                   <p className="text-base leading-none text-gray-800 ">$0</p>
-                </div>
+                </div> */}
               </div>
               <div>
                 <div className="flex items-center pb-6 justify-between lg:pt-5 pt-20">
@@ -121,9 +124,11 @@ export const Cart = () => {
                     ${getTotalAmount()}
                   </p>
                 </div>
-                <button className="rounded text-base leading-none w-full py-5 bg-red-rug-700 hover:bg-red-rug-500  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white">
-                  Finalizar compra
-                </button>
+                <Link to={"/payment"}>
+                  <button className="rounded text-base leading-none w-full py-5 bg-red-rug-700 hover:bg-red-rug-500  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white">
+                    Ir al pago
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

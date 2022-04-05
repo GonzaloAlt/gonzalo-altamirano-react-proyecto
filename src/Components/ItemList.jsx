@@ -18,7 +18,9 @@ export const ItemList = ({ products }) => {
             .slice(0, itemsToShow)
             .map((product) => <Item key={product.id} product={product} />)
         ) : (
-          <>No se pudieron cargar los productos</>
+          <div className="flex justify-center text-center text-gray-500 my-40  sm:text-lg sm:max-w-xl sm:mx-auto  md:text-xl ">
+            No se pudieron cargar los productos
+          </div>
         )}
       </div>
       <div className="flex justify-center mb-20">

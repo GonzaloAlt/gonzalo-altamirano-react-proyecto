@@ -38,3 +38,10 @@ export const swalAddFavs = () => {
     timer: 800,
   });
 };
+export const swalSuccessBuy = (buyId) => {
+  swal({
+    title: "Su compra se ha realizad con exito",
+    text: `Su número de compra es: ${buyId}`,
+    icon: "success",
+  });
+};

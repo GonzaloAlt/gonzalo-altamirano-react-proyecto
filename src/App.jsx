@@ -11,6 +11,7 @@ import { Cart } from "./Components/Cart";
 import { CartContextProvider } from "./Context/CartContext";
 import { Favourites } from "./Components/Favourites";
 import { FavouritesContextProvider } from "./Context/FavouritesContext";
+import { PaymentMethod } from "./Components/PaymentMethod";
 
 function App() {
   useEffect(() => {
@@ -34,6 +35,7 @@ function App() {
               <Route path="/item/:itemId" element={<ItemDetailContainer />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/favourites" element={<Favourites />} />
+              <Route path="/payment" element={<PaymentMethod />} />
             </Routes>
           </FavouritesContextProvider>
           <Footer />

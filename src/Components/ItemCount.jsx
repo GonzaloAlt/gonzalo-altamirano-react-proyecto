@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { getDBProductStock } from "../Helpers/DBget";
 
-export const ItemCount = ({ stock, count, setCount, itemCountStyle }) => {
+export const ItemCount = ({ id, count, setCount, itemCountStyle }) => {
   const [renderStyle, setRenderStyle] = useState(true);
+  let stock = getDBProductStock(id);
 
-  const onAdd = () => {
-    if (count < stock) setCount(count + 1);
+  const onAdd = async () => {
+    if (count < (await stock)) setCount(count + 1);
   };
   const onSubtract = () => {
     if (count > 1) setCount(count - 1);

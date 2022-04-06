@@ -23,6 +23,7 @@ export const Item = ({ product }) => {
   } = useContext(FavouritesContext);
 
   useEffect(() => {
+    window.addEventListener("resize", mobileVisible);
     isProductInFavourites(id) ? setFillLike("#ffd050") : setFillLike("#ffffff");
   }, [favourites]);
 
@@ -34,6 +35,10 @@ export const Item = ({ product }) => {
     setVisibility(false);
     setIsHover(false);
   }
+
+  const mobileVisible = () => {
+    window.innerWidth <= 639 ? setVisibility(true) : setVisibility(false);
+  };
 
   const item = {
     id,

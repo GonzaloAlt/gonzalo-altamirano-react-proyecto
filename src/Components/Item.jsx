@@ -24,6 +24,7 @@ export const Item = ({ product }) => {
   } = useContext(FavouritesContext);
 
   useEffect(() => {
+    mobileVisible();
     window.addEventListener("resize", mobileVisible);
     isProductInFavourites(id) ? setFillLike("#ffd050") : setFillLike("#ffffff");
   }, [favourites]);

@@ -40,7 +40,7 @@ export const swalAddFavs = () => {
 };
 export const swalSuccessBuy = (buyId) => {
   swal({
-    title: "Su compra se ha realizad con exito",
+    title: "Su compra se ha realizado con exito",
     text: `Su número de compra es: ${buyId}`,
     icon: "success",
   });

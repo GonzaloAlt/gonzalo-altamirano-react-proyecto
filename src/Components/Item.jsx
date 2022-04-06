@@ -13,6 +13,7 @@ export const Item = ({ product }) => {
   const [fillLike, setFillLike] = useState("#ffffff");
   const [isFav, setIsFav] = useState("");
   const [count, setCount] = useState(1);
+  const [isMobile, setIsMobile] = useState();
   const { addToCart, isProductInCart, addToExistingProd, limitStock } =
     useContext(CartContext);
   const {
@@ -37,7 +38,7 @@ export const Item = ({ product }) => {
   }
 
   const mobileVisible = () => {
-    window.innerWidth <= 639 ? setVisibility(true) : setVisibility(false);
+    window.innerWidth <= 639 ? setIsMobile(true) : setIsMobile(false);
   };
 
   const item = {
@@ -130,16 +131,29 @@ export const Item = ({ product }) => {
         <h3 className="text-gray-500 text-sm font-light text-center py-1">
           ${price}
         </h3>
-        <div className={visibility ? "" : "invisible"}>
-          <ItemCount
-            stock={stock}
-            id={id}
-            itemCountStyle={true}
-            count={count}
-            setCount={setCount}
-          />
-          <CartButton cartButtonStyle={true} addToCart={pushToCart} />
-        </div>
+        {isMobile ? (
+          <div>
+            <ItemCount
+              stock={stock}
+              id={id}
+              itemCountStyle={true}
+              count={count}
+              setCount={setCount}
+            />
+            <CartButton cartButtonStyle={true} addToCart={pushToCart} />
+          </div>
+        ) : (
+          <div className={visibility ? "" : "invisible"}>
+            <ItemCount
+              stock={stock}
+              id={id}
+              itemCountStyle={true}
+              count={count}
+              setCount={setCount}
+            />
+            <CartButton cartButtonStyle={true} addToCart={pushToCart} />
+          </div>
+        )}
       </div>
     </>
   );

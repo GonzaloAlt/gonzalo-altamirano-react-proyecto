@@ -4,9 +4,8 @@ import { getDBProductList, getProductStock } from "./DBget";
 
 export const writeCollection = async (collectionName, collectionData) => {
   const orderCollection = collection(db, collectionName);
-
   const docRef = await addDoc(orderCollection, collectionData);
-  return docRef.id;
+  return docRef;
 };
 
 export const updateStock = (cart) => {

@@ -27,7 +27,7 @@ export const PaymentMethod = () => {
     };
     updateStock([...cart]);
     const docRef = await writeCollection("orders", newOrder);
-    swalSuccessBuy(docRef);
+    swalSuccessBuy(docRef.id);
   };
 
   return (

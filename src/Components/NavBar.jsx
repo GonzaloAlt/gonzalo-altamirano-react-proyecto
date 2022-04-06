@@ -106,6 +106,19 @@ export default function Example() {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
+                            to="#"
+                            className={classNames(
+                              active ? "bg-red-rug-400" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
+                          >
+                            Login(en construcción)
+                          </Link>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
                             to="/favourites"
                             className={classNames(
                               active ? "bg-red-rug-400" : "",
@@ -116,19 +129,7 @@ export default function Example() {
                           </Link>
                         )}
                       </Menu.Item>
-                      {/* <Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            to="#"
-                            className={classNames(
-                              active ? "bg-red-rug-400" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
-                            )}
-                          >
-                            Settings
-                          </Link>
-                        )}
-                      </Menu.Item> */}
+
                       {/* <Menu.Item>
                         {({ active }) => (
                           <Link

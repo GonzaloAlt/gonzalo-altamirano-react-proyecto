@@ -17,6 +17,7 @@ export const CartContextProvider = ({ children }) => {
     const { name, count } = item;
     swalSuccess(name, count);
   };
+
   const removeFromCart = (id, name) => {
     swalDeleteSucces(name);
     return setCart(cart.filter((item) => item.id !== id));
@@ -25,6 +26,7 @@ export const CartContextProvider = ({ children }) => {
   const isProductInCart = (id) => {
     return cart.some((item) => item.id === id);
   };
+
   const addToExistingProd = ({ id, count, name }) => {
     /*Función provisoria, REFACTORIZAR!!!*/
     const existingMatch = cart.filter((item) => item.id === id);

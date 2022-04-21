@@ -26,14 +26,17 @@ function ItemListContainer(props) {
       : getDBCategory(category).then((response) => {
           setProducts(sortProduct(response, param.property, param.maxmin));
         })
-    ).catch((e) => {
-      setShow(false);
-      console.log(e);
-    });
-    setTimeout(() => {
-      setIsLoaded(true);
-    }, 800);
-  }, [category, filter]);
+    )
+      .catch((e) => {
+        setShow(false);
+        console.log(e);
+      })
+      .finally(
+        setTimeout(() => {
+          setIsLoaded(true);
+        }, 3000)
+      );
+  }, [category, filter, param.maxmin, param.property]);
 
   return (
     <>
@@ -50,10 +53,6 @@ function ItemListContainer(props) {
                   />
                 </div>
                 <FilterBar changeFilter={(filter) => setFilter(filter)} />
-
-                {/* <h2 className="text-center my-10 mt-20 text-4xl tracking-tight font-bold text-gray-900 sm:text-2xl md:text-4xl"> */}
-                {/* Bienvenido <span className="text-red-rug-600">{props.name}</span> */}
-                {/* </h2> */}
                 <div className="my-10 mt-20">
                   <ItemList products={products} />
                 </div>

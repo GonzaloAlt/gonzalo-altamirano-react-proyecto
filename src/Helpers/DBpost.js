@@ -19,6 +19,7 @@ export const updateStock = (cart) => {
   });
 };
 
+/* Llamar cuando haya productos faltantes */
 export const updateStockItems = async () => {
   const dataItems = await getDBProductList();
   dataItems.forEach(async (item) => {

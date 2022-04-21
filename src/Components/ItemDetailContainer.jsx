@@ -15,16 +15,17 @@ export const ItemDetailContainer = () => {
     getDBProduct(itemId)
       .then((response) => {
         response ? setProductId(response) : setShow(false);
-        setTimeout(() => {
-          setIsLoaded(true);
-        }, 800);
       })
       .catch((e) => {
         setShow(false);
         console.log(e);
-        setIsLoaded(true);
-      });
-  }, []);
+      })
+      .finally(
+        setTimeout(() => {
+          setIsLoaded(true);
+        }, 800)
+      );
+  }, [itemId]);
 
   return (
     <>

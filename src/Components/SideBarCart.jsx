@@ -19,13 +19,9 @@ export const SideBarCart = () => {
             type="button"
             className="-m-2 p-2 text-gray-400 hover:text-gray-500 text-xs absolute bg-white w-full flex"
           >
-            {/* <span className="sr-only">Vaciar carrito</span> */}
-
             <TrashIcon className="h-6 w-6" aria-hidden="true" />
             <h3 className="pl-1 pt-1">Vaciar carrito</h3>
           </button>
-
-          {/* <div className="ml-3 flex h-7 items-center"></div> */}
         </div>
 
         <div className="mt-8">

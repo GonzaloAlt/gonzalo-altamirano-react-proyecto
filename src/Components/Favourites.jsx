@@ -51,7 +51,7 @@ export const Favourites = () => {
                       </h2>
                       <p className="text-gray-600 text-xs">{product.detail}</p>
                     </div>
-                    <Link to={"/store"}>
+                    <Link to={`/item/${product.id}`}>
                       <div className="text-left py-4 px-8">
                         <span className="text-xs text-gray-500">
                           Ver en tienda

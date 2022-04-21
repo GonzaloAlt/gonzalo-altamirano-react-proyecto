@@ -12,6 +12,7 @@ import { CartContextProvider } from "./Context/CartContext";
 import { Favourites } from "./Components/Favourites";
 import { FavouritesContextProvider } from "./Context/FavouritesContext";
 import { PaymentMethod } from "./Components/PaymentMethod";
+import { AboutUs } from "./Components/AboutUs";
 
 function App() {
   useEffect(() => {
@@ -29,6 +30,7 @@ function App() {
             <Routes>
               <Route path="*" element={<Page404 />} />
               <Route path="/" element={<Title />} />
+              <Route path="/nosotros" element={<AboutUs />} />
               <Route path="/home" element={<Title />} />
               <Route path="/store" element={<ItemListContainer />} />
               <Route path="/store/:category" element={<ItemListContainer />} />

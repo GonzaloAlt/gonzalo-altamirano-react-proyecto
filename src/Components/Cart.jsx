@@ -87,8 +87,11 @@ export const Cart = () => {
                   Resumen de compra
                 </p>
                 <div className="h-72  overflow-y-auto text-gray-800 pr-6 -mr-8 ">
-                  {cart.map((product) => (
-                    <div className="flex items-center justify-between py-4 border-b-2">
+                  {cart.map((product, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-between py-4 border-b-2"
+                    >
                       <p className="text-sm leading-none text-gray-800 ">
                         {product.name}
                       </p>
@@ -98,24 +101,6 @@ export const Cart = () => {
                     </div>
                   ))}
                 </div>
-                {/* <div className="flex items-center justify-between pt-16">
-                  <p className="text-base leading-none text-gray-800 ">
-                    Subtotal:
-                  </p>
-                  <p className="text-base leading-none text-gray-800 ">
-                    ${getTotalAmount()}
-                  </p>
-                </div> */}
-                {/* <div className="flex items-center justify-between pt-5">
-                  <p className="text-base leading-none text-gray-800 ">Envío</p>
-                  <p className="text-base leading-none text-gray-800 ">$0</p>
-                </div>
-                <div className="flex items-center justify-between pt-5">
-                  <p className="text-base leading-none text-gray-800 ">
-                    Descuentos
-                  </p>
-                  <p className="text-base leading-none text-gray-800 ">$0</p>
-                </div> */}
               </div>
               <div>
                 <div className="flex items-center pb-6 justify-between lg:pt-5 pt-20">
@@ -125,8 +110,8 @@ export const Cart = () => {
                   </p>
                 </div>
                 <Link to={"/payment"}>
-                  <button className="rounded text-base leading-none w-full py-5 bg-red-rug-700 hover:bg-red-rug-500  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white">
-                    Ir al pago
+                  <button className="rounded text-base font-semibold leading-none w-full py-5 bg-red-rug-700 hover:bg-red-rug-500  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white">
+                    IR AL PAGO
                   </button>
                 </Link>
               </div>
@@ -146,7 +131,7 @@ export const Cart = () => {
             Uups! No tienes productos en el carrito
           </h2>
           <Link to="/store" className=" m-auto">
-            <button className="mb-2 pt-6 text-red-700 text-2xl font-bold text-center text-gray-800 md:text-3xl">
+            <button className="mb-2 pt-6 text-red-700 text-2xl font-semibold text-center text-gray-800 md:text-3xl">
               Ir a tienda
             </button>
           </Link>

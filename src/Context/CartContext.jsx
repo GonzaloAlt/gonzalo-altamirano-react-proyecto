@@ -37,10 +37,6 @@ export const CartContextProvider = ({ children }) => {
     swalSuccess(name, count);
   };
 
-  // const limitStock = ({ id, count, stock }) => {
-  //   const countInCart = cart.filter((item) => item.id === id)[0].count;
-  //   return countInCart + count <= stock || swalWarning();
-  // };
   const limitStock = async ({ id, count }) => {
     const countInCart = cart.filter((item) => item.id === id)[0].count;
     let stock = getDBProductStock(id);

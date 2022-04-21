@@ -7,13 +7,13 @@ export const Footer = () => {
       <div className="p-4 bg-red-rug-700 sm:p-6 dark:bg-gray-800">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
-            <a href="#" className="flex items-center">
+            <button href="#" className="flex items-center">
               <img
                 src={theDudeLogo}
                 className="mr-3 h-8"
                 alt="The Dude Shop Logo"
               />
-            </a>
+            </button>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
@@ -22,13 +22,23 @@ export const Footer = () => {
               </h2>
               <ul className="text-white dark:text-gray-400">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
-                    Lorem Ipsum
+                  <a
+                    href="https://tailwindcss.com/"
+                    className="hover:underline"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Tailwind CSS
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline">
-                    Lorem Ipsum
+                  <a
+                    href="https://es.reactjs.org/"
+                    className="hover:underline"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    React JS
                   </a>
                 </li>
               </ul>
@@ -39,12 +49,22 @@ export const Footer = () => {
               </h2>
               <ul className="text-white dark:text-gray-400">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline ">
+                  <a
+                    href="https://github.com/GonzaloAlt/gonzalo-altamirano-react-proyecto.git"
+                    target="_blank"
+                    className="hover:underline "
+                    rel="noreferrer"
+                  >
                     Github
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline">
+                  <a
+                    href="https://www.linkedin.com/in/gonzalo-altamirano-7b6047137/"
+                    target="_blank"
+                    className="hover:underline"
+                    rel="noreferrer"
+                  >
                     Linkedin
                   </a>
                 </li>
@@ -56,14 +76,14 @@ export const Footer = () => {
               </h2>
               <ul className="text-white dark:text-gray-400">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <button href="#" className="hover:underline">
                     Política de privacidad
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline">
+                  <button href="#" className="hover:underline">
                     Términos &amp; condiciones
-                  </a>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -73,13 +93,13 @@ export const Footer = () => {
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-white sm:text-center dark:text-gray-400">
             © 2022{" "}
-            <a href="#" className="hover:underline">
+            <button href="#" className="hover:underline">
               Gonzalo Altamirano™
-            </a>
+            </button>
             . All Rights Reserved.
           </span>
           <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-            <a
+            <button
               href="#"
               className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
             >
@@ -95,8 +115,8 @@ export const Footer = () => {
                   clipRule="evenodd"
                 ></path>
               </svg>
-            </a>
-            <a
+            </button>
+            <button
               href="#"
               className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
             >
@@ -112,23 +132,27 @@ export const Footer = () => {
                   clipRule="evenodd"
                 ></path>
               </svg>
-            </a>
+            </button>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/gonzalo-altamirano-7b6047137/"
               className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+              rel="noreferrer"
+              target="_blank"
             >
               <svg
-                className="w-5 h-5"
+                xmlns="http://www.w3.org/2000/svg"
                 fill="#ffd050"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
+                viewBox="0 0 30 30"
+                className="w-5 h-5"
               >
-                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                <path d="M24,4H6C4.895,4,4,4.895,4,6v18c0,1.105,0.895,2,2,2h18c1.105,0,2-0.895,2-2V6C26,4.895,25.105,4,24,4z M10.954,22h-2.95 v-9.492h2.95V22z M9.449,11.151c-0.951,0-1.72-0.771-1.72-1.72c0-0.949,0.77-1.719,1.72-1.719c0.948,0,1.719,0.771,1.719,1.719 C11.168,10.38,10.397,11.151,9.449,11.151z M22.004,22h-2.948v-4.616c0-1.101-0.02-2.517-1.533-2.517 c-1.535,0-1.771,1.199-1.771,2.437V22h-2.948v-9.492h2.83v1.297h0.04c0.394-0.746,1.356-1.533,2.791-1.533 c2.987,0,3.539,1.966,3.539,4.522V22z" />
               </svg>
             </a>
             <a
-              href="#"
+              href="https://github.com/GonzaloAlt/gonzalo-altamirano-react-proyecto.git"
               className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+              rel="noreferrer"
+              target="_blank"
             >
               <svg
                 className="w-5 h-5"

@@ -13,7 +13,7 @@ export const ItemCount = ({ id, count, setCount, itemCountStyle }) => {
   };
   useEffect(() => {
     setRenderStyle(itemCountStyle);
-  }, []);
+  }, [itemCountStyle]);
 
   return (
     <>

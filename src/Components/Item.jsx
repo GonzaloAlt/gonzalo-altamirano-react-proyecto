@@ -27,7 +27,7 @@ export const Item = ({ product }) => {
     mobileVisible();
     window.addEventListener("resize", mobileVisible);
     isProductInFavourites(id) ? setFillLike("#ffd050") : setFillLike("#ffffff");
-  }, [favourites]);
+  }, [favourites, id, isProductInFavourites]);
 
   function handleMouseEnter() {
     setVisibility(true);

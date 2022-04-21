@@ -10,13 +10,13 @@ _Clonar el repositorio o descargar el zip_
 
 ### Instalación 🔧
 
-_Instalar las dependencias_
+Instalar las dependencias
 
 ```
 npm install
 ```
 
-_Iniciar la aplicación_
+Iniciar la aplicación
 
 ```
 npm start
@@ -36,7 +36,7 @@ Realizado con mucho ❤️ por:
 
 - **Gonzalo Altamirano** - _Desarrollador Front End_ - [GonzaloAlt](https://github.com/GonzaloAlt/)
 
-## Muchas gracias por visitar!
+### Muchas gracias por visitar!
 
 ```
 

@@ -4,7 +4,7 @@ import { CartContext } from "../Context/CartContext";
 import { useContext, useEffect, useState } from "react";
 
 function CartWidget() {
-  const { cart } = useContext(CartContext);
+  const { cart, getTotalItems } = useContext(CartContext);
   const [effect, setEffect] = useState("");
 
   useEffect(() => {
@@ -22,7 +22,7 @@ function CartWidget() {
         >
           {cart.length > 0 && (
             <h4 className="absolute bg-[#ffd050] rounded-full px-[6px] right-0 text-[10px] translate-y-[-15px]">
-              {cart.map((item) => item.count).reduce((pv, cv) => pv + cv, 0)}
+              {getTotalItems()}
             </h4>
           )}
 

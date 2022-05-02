@@ -53,6 +53,9 @@ export const CartContextProvider = ({ children }) => {
       .map((item) => item.count * item.price)
       .reduce((pv, cv) => pv + cv, 0);
   };
+  const getTotalItems = () => {
+    return cart.map((item) => item.count).reduce((pv, cv) => pv + cv, 0);
+  };
   return (
     <CartContext.Provider
       value={{
@@ -64,6 +67,7 @@ export const CartContextProvider = ({ children }) => {
         limitStock,
         clearCart,
         getTotalAmount,
+        getTotalItems,
       }}
     >
       {children}

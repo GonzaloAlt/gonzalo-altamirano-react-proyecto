@@ -243,16 +243,16 @@ export const PaymentMethod = () => {
                 validate={(values) => {
                   let errors = {};
 
-                  if (checkName(values.CCName)) {
+                  if (checkName(values.CCName) && checked===false) {
                     errors.CCName = checkName(values.CCName);
                   }
-                  if (checkCreditCardNumber(values.CCNumber, card)) {
+                  if (checkCreditCardNumber(values.CCNumber, card) && checked===false) {
                     errors.CCNumber = checkCreditCardNumber(
                       values.CCNumber,
                       card
                     );
                   }
-                  if (checkSecurityCode(values.securityNum)) {
+                  if (checkSecurityCode(values.securityNum) && checked===false) {
                     errors.securityNum = checkSecurityCode(values.securityNum);
                   }
                   return errors;
